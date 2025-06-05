@@ -1,10 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programma Giornaliero Trasformazione Frutta - Simone Gatto</title>
+<!-- Importazione librerie esterne -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -153,12 +153,11 @@ body {
 }
 
 .totals-section {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   gap: 10px; /* Reduced gap */
+   display: flex;
+   justify-content: space-around;
    margin-bottom: 20px;
-   background-color: #ffc107; /* Ocher yellow */
-   padding: 10px; /* Reduced padding */
+   background-color: #ffc107;
+   padding: 15px;
    border: 1px solid #000000;
    border-radius: 5px;
 }
@@ -166,31 +165,25 @@ body {
 .total-item {
    text-align: center;
    color: #000000;
-   background-color: #ffe08a; /* Lighter ocher yellow */
-   border-radius: 5px;
-   padding: 5px; /* Reduced padding */
-   height: 60px; /* Compacted height */
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
 }
 
 .total-value {
-   font-size: 20px; /* Slightly reduced font size */
+   font-size: 22px;
    font-weight: bold;
    color: #000000;
 }
 
 .total-label {
-   font-size: 14px; /* Slightly reduced font size */
+   font-size: 16px;
    margin-top: 3px;
    color: #000000;
 }
 
+/* MODIFICATO: 6 colonne fornitori su una riga */
 .suppliers-container {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-   gap: 15px;
+   grid-template-columns: repeat(6, 1fr);
+   gap: 10px;
    margin-bottom: 20px;
 }
 
@@ -198,25 +191,54 @@ body {
    background-color: #e9ecef;
    border: 1px solid #000000;
    border-radius: 5px;
-   padding: 15px;
+   padding: 12px;
    page-break-inside: avoid;
+   min-height: 500px;
+}
+
+/* COLORI COMBINAZIONI */
+.supplier-card.combination-verde {
+   background-color: #d4edda;
+   border: 2px solid #28a745;
+}
+
+.supplier-card.combination-azzurro {
+   background-color: #d1ecf1;
+   border: 2px solid #17a2b8;
+}
+
+.supplier-card.combination-viola {
+   background-color: #e2e3f3;
+   border: 2px solid #6f42c1;
 }
 
 .supplier-header {
    background: #6c757d;
    color: #ffffff;
-   padding: 8px;
+   padding: 6px;
    text-align: center;
    font-weight: bold;
-   font-size: 20px;
-   margin: -15px -15px 15px -15px;
+   font-size: 18px;
+   margin: -12px -12px 12px -12px;
    border-bottom: 1px solid #000000;
+}
+
+.supplier-header.combination-verde {
+   background: #28a745;
+}
+
+.supplier-header.combination-azzurro {
+   background: #17a2b8;
+}
+
+.supplier-header.combination-viola {
+   background: #6f42c1;
 }
 
 .form-row {
    display: flex;
    justify-content: space-between;
-   margin-bottom: 8px;
+   margin-bottom: 6px;
    align-items: center;
 }
 
@@ -224,7 +246,7 @@ body {
    font-weight: bold;
    color: #000000;
    width: 45%;
-   font-size: 16px;
+   font-size: 14px;
 }
 
 .form-input {
@@ -237,12 +259,12 @@ body {
    width: 100%;
    border: 1px solid #000000;
    border-radius: 4px;
-   padding: 6px;
-   font-size: 14px;
+   padding: 4px;
+   font-size: 12px;
 }
 
 .form-input textarea {
-   min-height: 60px;
+   min-height: 45px;
    resize: vertical;
 }
 
@@ -300,89 +322,79 @@ body {
 
 .section-divider {
    border-bottom: 1px solid #6c757d;
-   margin: 8px 0;
+   margin: 6px 0;
 }
 
-/* Combination colors */
-.supplier-card.combination-green {
-    background-color: #e6ffe6; /* Light green */
-    border-color: #28a745; /* Green */
-}
-.supplier-card.combination-blue {
-    background-color: #e6f7ff; /* Light blue */
-    border-color: #17a2b8; /* Blue */
-}
-.supplier-card.combination-purple {
-    background-color: #f3e6ff; /* Light purple */
-    border-color: #6f42c1; /* Purple */
-}
-
-.supplier-card.combination-green .supplier-header {
-    background-color: #28a745; /* Green */
-}
-.supplier-card.combination-blue .supplier-header {
-    background-color: #17a2b8; /* Blue */
-}
-.supplier-card.combination-purple .supplier-header {
-    background-color: #6f42c1; /* Purple */
-}
-
-
+/* MODIFICATO: Sezioni totali compatte con giallo ocra */
 .summary-section {
    display: flex;
-   gap: 20px;
+   gap: 15px;
    margin-top: 20px;
 }
 
 .summary-box {
    flex: 1;
-   background: #ffc107;
-   padding: 15px;
+   background: linear-gradient(135deg, #daa520, #b8860b);
+   padding: 12px;
    border: 1px solid #000000;
    border-radius: 5px;
    color: #000000;
+   min-height: 280px;
 }
 
 .summary-title {
    font-weight: bold;
-   font-size: 20px;
-   margin-bottom: 10px;
+   font-size: 18px;
+   margin-bottom: 8px;
    text-align: center;
    color: #000000;
+   background-color: rgba(255, 255, 255, 0.3);
+   padding: 4px;
+   border-radius: 3px;
 }
 
 .summary-item {
    display: flex;
    justify-content: space-between;
-   margin-bottom: 5px;
-   font-size: 17px;
+   align-items: center;
+   margin-bottom: 4px;
+   font-size: 14px;
    color: #000000;
 }
 
 .summary-value {
    font-weight: bold;
-   font-size: 18px;
+   font-size: 16px;
    color: #000000;
+   background-color: rgba(255, 255, 255, 0.4);
+   padding: 2px 6px;
+   border-radius: 3px;
 }
 
-.summary-input {
-   width: 100%;
+.summary-input,
+.summary-textarea {
+   width: 55%;
    border: 1px solid #000000;
-   border-radius: 4px;
-   padding: 6px;
-   font-size: 14px;
-   margin-top: 5px;
+   border-radius: 3px;
+   padding: 3px;
+   font-size: 12px;
+   background-color: rgba(255, 255, 255, 0.8);
+   margin: 0;
 }
 
 .summary-textarea {
-   width: 100%;
-   border: 1px solid #000000;
-   border-radius: 4px;
-   padding: 6px;
-   font-size: 14px;
-   min-height: 60px;
+   min-height: 40px;
    resize: vertical;
-   margin-top: 5px;
+}
+
+.summary-notes {
+   margin-top: 8px;
+}
+
+.summary-notes strong {
+   display: block;
+   margin-bottom: 3px;
+   font-size: 13px;
 }
 
 .footer {
@@ -397,11 +409,11 @@ body {
 }
 
 .transfer-details, .distribution-details {
-   font-size: 15px;
+   font-size: 11px;
    color: #000000;
-   margin-top: 5px;
+   margin-top: 3px;
    background-color: #d4edda;
-   padding: 5px;
+   padding: 3px;
    border-radius: 3px;
    border: 1px solid #28a745;
 }
@@ -517,90 +529,93 @@ body {
 .select2-container--default .select2-selection--multiple {
    border: 1px solid #000000;
    border-radius: 4px;
-   min-height: 35px;
+   min-height: 30px;
    padding: 2px;
 }
 
 .distribution-section {
-   margin-top: 10px;
-   padding: 10px;
+   margin-top: 8px;
+   padding: 6px;
    border: 1px solid #17a2b8;
-   border-radius: 5px;
+   border-radius: 3px;
    background-color: #f8f9fa;
 }
 
 .distribution-row {
    display: flex;
    align-items: center;
-   margin-bottom: 5px;
-   gap: 5px;
+   margin-bottom: 3px;
+   gap: 3px;
 }
 
 .distribution-dest {
    flex: 1;
    font-weight: bold;
    color: #17a2b8;
-   font-size: 14px;
+   font-size: 11px;
 }
 
 .distribution-qty {
-   width: 80px;
+   width: 60px;
+   font-size: 11px;
+   padding: 2px;
 }
 
 .remaining-qty {
    background-color: #e7f3ff;
    border: 1px solid #2a5298;
-   padding: 5px;
+   padding: 3px;
    border-radius: 3px;
    font-weight: bold;
    text-align: center;
    color: #1e3c72;
-   font-size: 14px;
-   margin-bottom: 10px;
+   font-size: 11px;
+   margin-bottom: 6px;
 }
 
 .transfer-section {
    background-color: #fff3cd;
    border: 1px solid #ffc107;
-   border-radius: 5px;
-   padding: 8px;
-   margin-top: 8px;
+   border-radius: 3px;
+   padding: 4px;
+   margin-top: 4px;
 }
 
 .transfer-row {
    display: flex;
    align-items: center;
-   gap: 5px;
+   gap: 3px;
    flex-wrap: wrap;
 }
 
 .transfer-row .form-label {
-   min-width: 80px;
+   min-width: 60px;
    margin-bottom: 0;
-   font-size: 12px;
+   font-size: 10px;
    flex-shrink: 0;
 }
 
 .transfer-row .transfer-destination {
-   min-width: 120px;
+   min-width: 80px;
    flex: 1;
-   font-size: 12px;
+   font-size: 10px;
 }
 
 .transfer-row .transfer-qty {
-   width: 50px;
-   font-size: 12px;
+   width: 40px;
+   font-size: 10px;
+   padding: 2px;
 }
 
 .transfer-row .btn {
-   padding: 4px 8px;
-   font-size: 11px;
+   padding: 2px 6px;
+   font-size: 9px;
    margin: 0;
    white-space: nowrap;
 }
 
 .combination-section {
-   background-color: #e9ecef; /* Light gray */
+   background-color: #f8f9fa;
    border: 1px solid #000000;
    border-radius: 5px;
    padding: 15px;
@@ -608,104 +623,19 @@ body {
 }
 
 .combination-group {
-   display: flex;
-   align-items: center;
-   gap: 10px;
-   margin-bottom: 10px;
-   padding: 10px;
-   border: 2px solid #8e8e8e; /* Darker gray border */
+   background-color: #f0f8ff;
+   border: 2px solid #007bff;
    border-radius: 8px;
-   background-color: #f8f8f8; /* Very light gray */
+   padding: 15px;
+   margin-bottom: 15px;
 }
 
-.combination-group.combination-green-bg {
-    background-color: #e6ffe6;
-    border-color: #28a745;
-}
-.combination-group.combination-blue-bg {
-    background-color: #e6f7ff;
-    border-color: #17a2b8;
-}
-.combination-group.combination-purple-bg {
-    background-color: #f3e6ff;
-    border-color: #6f42c1;
-}
-
-.combination-group h5 {
-   margin-bottom: 0;
-   min-width: 150px;
-}
-
-.combination-group .form-select {
-   flex-grow: 1;
-}
-
-.combination-group .btn {
-   margin-left: 0;
-   margin-right: 0;
-}
-
-@media print {
-   body { 
-       margin: 15mm;
-       background-color: #ffffff;
-       font-size: 16px;
-   }
-   
-   .controls-section {
-       display: none !important;
-   }
-   
-   .combination-section {
-       display: none !important;
-   }
-   
-   .btn {
-       display: none !important;
-   }
-   
-   .suppliers-container {
-       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-   }
-   
-   .header {
-       background: #1e3c72 !important;
-       color: #ffffff !important;
-   }
-   
-   .header h1, .header .subtitle, .header-info {
-       color: #ffffff !important;
-   }
-   
-   .total-value, .total-label {
-       color: #000000 !important;
-   }
-   
-   .supplier-header {
-       background: #6c757d !important;
-       color: #ffffff !important;
-   }
-   
-   .bio-red-field {
-       color: #dc3545 !important;
-   }
-   
-   .bio-black-field {
-       color: #000000 !important;
-   }
-   
-   .bio-red-text {
-       color: #dc3545 !important;
-   }
-   
-   .bio-black-text {
-       color: #000000 !important;
-   }
-   
-   @page {
-       margin: 10mm;
-       size: A4 landscape;
-   }
+.combination-group-b {
+   background-color: #f0fff0;
+   border: 2px solid #28a745;
+   border-radius: 8px;
+   padding: 15px;
+   margin-bottom: 15px;
 }
 
 .save-status {
@@ -724,6 +654,61 @@ body {
    border: 1px solid #dc3545;
    color: #721c24;
 }
+
+@media print {
+   body { 
+       margin: 15mm;
+       background-color: #ffffff;
+       font-size: 14px;
+   }
+   
+   .controls-section {
+       display: none !important;
+   }
+   
+   .combination-section {
+       display: none !important;
+   }
+   
+   .btn {
+       display: none !important;
+   }
+   
+   .suppliers-container {
+       grid-template-columns: repeat(6, 1fr);
+       gap: 5px;
+   }
+   
+   .supplier-card {
+       font-size: 10px;
+       padding: 8px;
+   }
+   
+   .form-label {
+       font-size: 9px;
+   }
+   
+   .form-input input,
+   .form-input select,
+   .form-input textarea {
+       font-size: 8px;
+       padding: 2px;
+   }
+   
+   .header {
+       background: #1e3c72 !important;
+       color: #ffffff !important;
+   }
+   
+   .header h1, .header .subtitle, .header-info {
+       color: #ffffff !important;
+   }
+   
+   @page {
+       margin: 10mm;
+       size: A4 landscape;
+   }
+}
 </style>
 </head>
 
@@ -741,10 +726,12 @@ body {
        </div>
    </div>
 
+   <!-- Status salvataggio -->
    <div id="save-status" class="save-status">
        <span id="save-message"></span>
    </div>
 
+   <!-- Sezione Controlli -->
    <div class="controls-section">
        <div class="form-group">
            <label for="tipo-agrume-giornaliero">Tipo di Agrume</label>
@@ -776,6 +763,9 @@ body {
            <button type="button" class="btn btn-info" id="carica-programma">
                <i class="bi bi-folder-open"></i> Carica
            </button>
+           <button type="button" class="btn btn-info" id="salva-file">
+               <i class="bi bi-download"></i> Salva File
+           </button>
            <button type="button" class="btn btn-warning" onclick="window.print()">
                <i class="bi bi-printer"></i> Stampa
            </button>
@@ -785,6 +775,7 @@ body {
        </div>
    </div>
 
+   <!-- Sezione Totali -->
    <div class="totals-section">
        <div class="total-item">
            <div class="total-value" id="entrata-giornaliera-display">0</div>
@@ -800,57 +791,72 @@ body {
        </div>
    </div>
 
-   <div id="combinazioni-section" class="combination-section">
+   <!-- Sezione Combinazioni Fornitori -->
+   <div id="combinazioni-section" class="combination-section hidden-field">
        <h3 style="margin-bottom: 15px; color: #1e3c72;"><i class="bi bi-diagram-3"></i> Selezione Combinazioni Fornitori</h3>
        
-       <div class="combination-group" id="combination-group-a">
-           <h5><i class="bi bi-droplet"></i> Succo 1ª</h5>
-           <select class="form-select" id="combinazione-fornitori-a" multiple="multiple">
+       <div class="combination-group">
+           <h5><i class="bi bi-diagram-2"></i> Combinazione Verde - Succo 1ª</h5>
+           <div style="margin-bottom: 10px;">
+               <select class="form-select" id="combinazione-fornitori-verde" style="width: 100%; margin-bottom: 10px;">
+                   <option value="">Seleziona combinazione Verde</option>
                </select>
-           <button type="button" class="btn btn-success" id="applica-combinazione-a">
-               <i class="bi bi-check-circle"></i> Applica
-           </button>
-           <button type="button" class="btn btn-warning" id="reset-combinazione-a">
-               <i class="bi bi-x-circle"></i> Reset
-           </button>
+               <button type="button" class="btn btn-success" id="applica-combinazione-verde">
+                   <i class="bi bi-check-circle"></i> Applica Verde
+               </button>
+               <button type="button" class="btn btn-warning" id="reset-combinazione-verde">
+                   <i class="bi bi-x-circle"></i> Reset Verde
+               </button>
+           </div>
        </div>
        
-       <div class="combination-group" id="combination-group-b">
-           <h5><i class="bi bi-droplet-fill"></i> Succo 2ª</h5>
-           <select class="form-select" id="combinazione-fornitori-b" multiple="multiple">
+       <div class="combination-group-b">
+           <h5><i class="bi bi-diagram-3"></i> Combinazione Azzurro - Succo 1ª</h5>
+           <div style="margin-bottom: 10px;">
+               <select class="form-select" id="combinazione-fornitori-azzurro" style="width: 100%; margin-bottom: 10px;">
+                   <option value="">Seleziona combinazione Azzurro</option>
                </select>
-           <button type="button" class="btn btn-success" id="applica-combinazione-b">
-               <i class="bi bi-check-circle"></i> Applica
-           </button>
-           <button type="button" class="btn btn-warning" id="reset-combinazione-b">
-               <i class="bi bi-x-circle"></i> Reset
-           </button>
+               <button type="button" class="btn btn-info" id="applica-combinazione-azzurro">
+                   <i class="bi bi-check-circle"></i> Applica Azzurro
+               </button>
+               <button type="button" class="btn btn-warning" id="reset-combinazione-azzurro">
+                   <i class="bi bi-x-circle"></i> Reset Azzurro
+               </button>
+           </div>
        </div>
 
-       <div class="combination-group" id="combination-group-c">
-           <h5><i class="bi bi-dash-circle"></i> Torchiato</h5>
-           <select class="form-select" id="combinazione-fornitori-c" multiple="multiple">
+       <div class="combination-group" style="background-color: #f3f0ff; border-color: #6f42c1;">
+           <h5><i class="bi bi-diagram-3"></i> Combinazione Viola - Succo 1ª</h5>
+           <div>
+               <select class="form-select" id="combinazione-fornitori-viola" style="width: 100%; margin-bottom: 10px;">
+                   <option value="">Seleziona combinazione Viola</option>
                </select>
-           <button type="button" class="btn btn-success" id="applica-combinazione-c">
-               <i class="bi bi-check-circle"></i> Applica
-           </button>
-           <button type="button" class="btn btn-warning" id="reset-combinazione-c">
-               <i class="bi bi-x-circle"></i> Reset
-           </button>
+               <button type="button" class="btn" style="background: #6f42c1; color: white;" id="applica-combinazione-viola">
+                   <i class="bi bi-check-circle"></i> Applica Viola
+               </button>
+               <button type="button" class="btn btn-warning" id="reset-combinazione-viola">
+                   <i class="bi bi-x-circle"></i> Reset Viola
+               </button>
+           </div>
        </div>
    </div>
 
+   <!-- Container Fornitori -->
    <div class="suppliers-container" id="suppliers-container">
-       </div>
+       <!-- I fornitori verranno aggiunti dinamicamente qui -->
+   </div>
 
+   <!-- Sezione Riepilogo -->
    <div id="summary-section" class="summary-section hidden-field">
-       </div>
+       <!-- Il riepilogo verrà generato dinamicamente -->
+   </div>
 
    <div class="footer">
        <p><strong>Documento generato automaticamente - Sistema di Gestione Produzione Simone Gatto</strong></p>
-       <p><strong>Legenda:</strong> (1ª) = Succo 1ª | (2ª) = Succo 2ª | (T) = Torchiato | (Tr) = Trasferimenti</p>
+       <p><strong>Legenda:</strong> (V) = Combinazione Verde | (A) = Combinazione Azzurro | (P) = Combinazione Viola | (T) = Trasferimenti</p>
    </div>
 
+   <!-- Modal Rese -->
    <div id="yields-modal" class="yields-modal">
        <div class="yields-content">
            <div class="yields-header">
@@ -998,16 +1004,11 @@ $(document).ready(function() {
    let supplierCount = 0;
    let programData = {};
 
-   // Variabili per le combinazioni
-   let combinationColors = {
-       'prima': 'green',
-       'seconda': 'blue',
-       'torchiato': 'purple'
-   };
-   let activeCombinations = {
-       'prima': { suppliers: [], colorClass: 'combination-green' },
-       'seconda': { suppliers: [], colorClass: 'combination-blue' },
-       'torchiato': { suppliers: [], colorClass: 'combination-purple' }
+   // Variabili per le combinazioni con colori
+   let combinationData = {
+       verde: { indexes: [], details: [] },
+       azzurro: { indexes: [], details: [] },
+       viola: { indexes: [], details: [] }
    };
 
    // Variabili per gestione rese
@@ -1103,1143 +1104,1652 @@ $(document).ready(function() {
            <div class="supplier-card" data-supplier-index="${index}">
                <div class="supplier-header">F${index} - <span class="supplier-name">Nuovo Fornitore</span></div>
                
+               <!-- Dati base -->
                <div class="form-row">
                    <span class="form-label">Nome Fornitore:</span>
                    <div class="form-input">
-                       <select class="nome-fornitore form-select" onchange="updateSupplierName(${index})">
+                       <select class="nome-fornitore" onchange="updateSupplierName(${index})">
                            <option value="">Seleziona fornitore</option>
-                           <option value="ROSSI S.R.L.">ROSSI S.R.L.</option>
-                           <option value="VERDI S.P.A.">VERDI S.P.A.</option>
-                           <option value="BIANCHI AZ.AGR.">BIANCHI AZ.AGR.</option>
-                           <option value="GIALLI FRATELLI">GIALLI FRATELLI</option>
-                           <option value="BLU SOC.COOP.">BLU SOC.COOP.</option>
-                           <option value="MARRONI AZ.AGR.">MARRONI AZ.AGR.</option>
-                           <option value="ALTRO">ALTRO (specifica)</option>
+                           <option value="RESTUCCIA">RESTUCCIA</option>
+                           <option value="CI">CI</option>
+                           <option value="ARCO">ARCO</option>
+                           <option value="GIOVINAZZO">GIOVINAZZO</option>
+                           <option value="AZ.T.C.">AZ.T.C.</option>
+                           <option value="M.B.T.F.">M.B.T.F.</option>
+                           <option value="VASTA">VASTA</option>
+                           <option value="APAL">APAL</option>
+                           <option value="GEIMA">GEIMA</option>
+                           <option value="UNIONBERG">UNIONBERG</option>
+                           <option value="ALTRO">ALTRO</option>
                        </select>
+                       <input type="text" class="altro-fornitore hidden-field" placeholder="Specifica altro fornitore" style="margin-top: 3px;">
                    </div>
                </div>
-               <div class="form-row hidden-field altro-fornitore-input">
-                   <span class="form-label">Specifica Altro:</span>
-                   <div class="form-input">
-                       <input type="text" class="form-control altro-fornitore-text" placeholder="Nome fornitore">
-                   </div>
-               </div>
+
                <div class="form-row">
-                   <span class="form-label">Quantità (Kg):</span>
+                   <span class="form-label">Entrata (kg):</span>
                    <div class="form-input">
-                       <input type="number" class="form-control quantita-fornitore" min="0" value="0" oninput="calculateSupplierTotals(${index})">
+                       <input type="number" class="quantita-fornitore" min="0" onchange="calculateSupplier(${index})">
                    </div>
                </div>
+
+               <div class="form-row">
+                   <span class="form-label">Trasformata (kg):</span>
+                   <div class="form-input">
+                       <input type="number" class="quantita-trasformata" min="0" onchange="calculateSupplier(${index})">
+                   </div>
+               </div>
+
+               <div class="form-row">
+                   <span class="form-label">Giacenza (kg):</span>
+                   <div class="form-input">
+                       <input type="number" class="giacenza-fornitore calculated-field" readonly>
+                   </div>
+               </div>
+
+               <div class="section-divider"></div>
+
+               <div class="form-row">
+                   <span class="form-label">Certificazione:</span>
+                   <div class="form-input">
+                       <select class="certificazione-prodotto" onchange="updateBioStyles(${index})">
+                           <option value="">Seleziona certificazione</option>
+                           <option value="BIO EU">BIO EU</option>
+                           <option value="BIO DEM">BIO DEM</option>
+                           <option value="BIO NTD">BIO NTD</option>
+                           <option value="BIO DEM/NTD">BIO DEM/NTD</option>
+                           <option value="TRACCIATO">TRACCIATO</option>
+                           <option value="IGP">IGP</option>
+                           <option value="CONVENZIONALE">CONVENZIONALE</option>
+                           <option value="ALTRO">ALTRO</option>
+                       </select>
+                       <input type="text" class="altra-certificazione hidden-field" placeholder="Specifica altra certificazione" style="margin-top: 3px;">
+                   </div>
+               </div>
+
                <div class="form-row">
                    <span class="form-label">Varietà:</span>
                    <div class="form-input">
-                       <select class="form-select varieta-agrume" onchange="toggleAltroVarieta(${index})">
+                       <select class="varieta-prodotto" onchange="toggleAltroVarieta(${index})">
+                           <option value="">Seleziona varietà</option>
                            ${varietyOptionsHtml}
                        </select>
+                       <input type="text" class="altra-varieta hidden-field" placeholder="Specifica altra varietà" style="margin-top: 3px;">
                    </div>
                </div>
-               <div class="form-row hidden-field altro-varieta-input">
-                   <span class="form-label">Specifica Varietà:</span>
-                   <div class="form-input">
-                       <input type="text" class="form-control altro-varieta-text" placeholder="Specifica varietà">
-                   </div>
-               </div>
+
                <div class="form-row">
-                   <span class="form-label">Bio/Convenzionale:</span>
+                   <span class="form-label">Linea:</span>
                    <div class="form-input">
-                       <select class="form-select tipo-produzione" onchange="updateBioStatus(${index})">
-                           <option value="CONV">Convenzionale</option>
-                           <option value="BIO">Biologico</option>
+                       <select class="linea-trasformazione" onchange="updateBioStyles(${index}); calculateSupplier(${index});">
+                           <option value="">Seleziona linea</option>
+                           <option value="BOE/1100">BOE/1100</option>
+                           <option value="GOE INT/POLY">GOE INT/POLY</option>
+                           <option value="GOE EST/POLY">GOE EST/POLY</option>
+                           <option value="GOE EST/400">GOE EST/400</option>
+                           <option value="B/SF">B/SF</option>
+                           <option value="TORCHI FASO">TORCHI FASO</option>
                        </select>
                    </div>
                </div>
+
+               <div class="section-divider"></div>
+
                <div class="form-row">
-                   <span class="form-label">Note Fornitore:</span>
+                   <span class="form-label">Portata (kg/h):</span>
                    <div class="form-input">
-                       <textarea class="form-control note-fornitore" rows="2"></textarea>
+                       <input type="number" class="portata-impianto" min="100" max="5000" onchange="calculateEndTime(${index})">
                    </div>
                </div>
 
-               <div class="section-divider"></div>
-               
                <div class="form-row">
-                   <span class="form-label">Succo 1ª (L):</span>
+                   <span class="form-label">Inizio:</span>
                    <div class="form-input">
-                       <input type="number" class="form-control succo-prima calculated-field" readonly value="0">
+                       <input type="time" class="orario-inizio" onchange="calculateEndTime(${index})">
                    </div>
                </div>
+
                <div class="form-row">
-                   <span class="form-label">Succo 2ª (L):</span>
+                   <span class="form-label">Fine:</span>
                    <div class="form-input">
-                       <input type="number" class="form-control succo-seconda calculated-field" readonly value="0">
-                   </div>
-               </div>
-               <div class="form-row">
-                   <span class="form-label">Torchiato (L):</span>
-                   <div class="form-input">
-                       <input type="number" class="form-control torchiato calculated-field" readonly value="0">
-                   </div>
-               </div>
-               <div class="form-row">
-                   <span class="form-label">Scarto (Kg):</span>
-                   <div class="form-input">
-                       <input type="number" class="form-control scarto calculated-field" readonly value="0">
+                       <div class="orario-fine-display calculated-field" style="padding: 3px; min-height: 28px; font-size: 11px;"></div>
                    </div>
                </div>
 
                <div class="section-divider"></div>
 
-               <div class="transfer-section">
-                   <div class="form-row">
-                       <span class="form-label">Succo 1ª Trasferito:</span>
-                       <div class="form-input">
-                           <input type="number" class="form-control succo-prima-trasferito" min="0" value="0" oninput="calculateSupplierTotals(${index})">
+               <!-- Rese -->
+               <div class="form-row">
+                   <span class="form-label">Resa Succo 1ª (%):</span>
+                   <div class="form-input">
+                       <input type="number" class="resa-prima" step="0.1" min="0" max="100" value="${yields.prima}" onchange="calculateSupplier(${index})">
+                   </div>
+               </div>
+
+               <!-- Quantità Succo 1ª -->
+               <div class="form-row">
+                   <span class="form-label">Succo 1ª (kg):</span>
+                   <div class="form-input">
+                       <input type="number" class="quantita-prima yield-result" readonly>
+                       <div class="transfer-details hidden-field" style="font-size: 10px; margin-top: 2px;"></div>
+                   </div>
+               </div>
+
+               <div class="section-divider"></div>
+
+               <!-- Destinazione Succo 1ª -->
+               <div class="form-row">
+                   <span class="form-label destinazione-prima-label">Dest. Succo 1ª:</span>
+                   <div class="form-input">
+                       <select class="destinazione-prima" multiple onchange="updateDistributionSection(${index})">
+                           <option value="NAT IN TINI">NAT IN TINI</option>
+                           <option value="PET 100">PET 100</option>
+                           <option value="PET 200">PET 200</option>
+                           <option value="PET 480">PET 480</option>
+                           <option value="ACMA">ACMA</option>
+                           <option value="REX">REX</option>
+                           <option value="GOGLIO">GOGLIO</option>
+                           <option value="VASCHETTE">VASCHETTE</option>
+                           <option value="VASCHETTE ZUCCHERATE">VASCHETTE ZUCCHERATE</option>
+                           <option value="LATTE">LATTE</option>
+                           <option value="F.F.">F.F.</option>
+                           <option value="F.T.C">F.T.C</option>
+                           <option value="FBL">FBL</option>
+                           <option value="BIC">BIC</option>
+                           <option value="CISTERNA P">CISTERNA P</option>
+                           <option value="CISTERNA EF">CISTERNA EF</option>
+                           <option value="CISTERNA VK">CISTERNA VK</option>
+                           <option value="CISTERNA GS">CISTERNA GS</option>
+                           <option value="CISTERNA CARTH.">CISTERNA CARTH.</option>
+                           <option value="CONCENTRATO">CONCENTRATO</option>
+                           <option value="ALTRO">ALTRO</option>
+                       </select>
+                       <input type="text" class="altra-destinazione hidden-field" placeholder="Specifica altra destinazione" style="margin-top: 3px;">
+                       
+                       <!-- Sezione distribuzione -->
+                       <div class="distribution-section hidden-field">
+                           <div class="remaining-qty">Rimanente: <span class="remaining-value">0</span> kg</div>
+                           <div class="distribution-container"></div>
+                           
+                           <!-- Sezione trasferimento -->
+                           <div class="transfer-section hidden-field">
+                               <div class="transfer-row">
+                                   <span class="form-label">Invia a:</span>
+                                   <select class="transfer-destination"></select>
+                                   <input type="number" class="transfer-qty" placeholder="kg" min="0" step="0.1">
+                                   <button type="button" class="btn btn-success" onclick="executeTransfer(${index})">
+                                       Trasferisci
+                                   </button>
+                               </div>
+                           </div>
                        </div>
                    </div>
-                   <div class="form-row">
-                       <span class="form-label">Succo 2ª Trasferito:</span>
-                       <div class="form-input">
-                           <input type="number" class="form-control succo-seconda-trasferito" min="0" value="0" oninput="calculateSupplierTotals(${index})">
-                       </div>
+               </div>
+
+               <div class="section-divider"></div>
+
+               <!-- Caratteristiche prodotti compatte -->
+               <div class="form-row">
+                   <span class="form-label">Polpa:</span>
+                   <div class="form-input">
+                       <select class="tenore-polpa-prima" onchange="toggleAltroTenore(${index}, 'prima')">
+                           <option value="STANDARD">STANDARD</option>
+                           <option value="LIMPIDO">LIMPIDO</option>
+                           <option value="<1%"><1%</option>
+                           <option value="2%">2%</option>
+                           <option value="3%">3%</option>
+                           <option value="6%">6%</option>
+                           <option value="ALTRO">ALTRO</option>
+                       </select>
                    </div>
-                   <div class="form-row">
-                       <span class="form-label">Torchiato Trasferito:</span>
-                       <div class="form-input">
-                           <input type="number" class="form-control torchiato-trasferito" min="0" value="0" oninput="calculateSupplierTotals(${index})">
-                       </div>
+               </div>
+
+               <div class="form-row">
+                   <span class="form-label">°BX:</span>
+                   <div class="form-input">
+                       <select class="brix-prima" onchange="toggleAltroBrix(${index}, 'prima')">
+                           <option value="NAT">NAT</option>
+                           <option value="20">20</option>
+                           <option value="32">32</option>
+                           <option value="40">40</option>
+                           <option value="45">45</option>
+                           <option value="50">50</option>
+                           <option value="55">55</option>
+                           <option value="60">60</option>
+                           <option value="65">65</option>
+                           <option value="ALTRO">ALTRO</option>
+                       </select>
                    </div>
-                   <button type="button" class="btn btn-sm btn-info w-100 mt-2 aggiungi-trasferimento" data-supplier-index="${index}">
-                       <i class="bi bi-arrow-right-square"></i> Dettagli Trasferimento
+               </div>
+
+               <div class="form-row">
+                   <span class="form-label">Bio:</span>
+                   <div class="form-input">
+                       <select class="bio-prima" onchange="updateBioStyles(${index})">
+                           <option value="SI">SI</option>
+                           <option value="NO">NO</option>
+                           <option value="DECLASSATO">DECLASSATO</option>
+                       </select>
+                   </div>
+               </div>
+
+               <div class="form-row">
+                   <span class="form-label">Pastorizzato:</span>
+                   <div class="form-input">
+                       <select class="pastorizzato-prima">
+                           <option value="SI">SI</option>
+                           <option value="NO">NO</option>
+                       </select>
+                   </div>
+               </div>
+
+               <div class="form-row">
+                   <span class="form-label">Conservato:</span>
+                   <div class="form-input">
+                       <select class="conservato-prima">
+                           <option value="SI">SI</option>
+                           <option value="NO" selected>NO</option>
+                       </select>
+                   </div>
+               </div>
+
+               <div class="form-row">
+                   <span class="form-label">Note:</span>
+                   <div class="form-input">
+                       <textarea class="note-prima" placeholder="Note Succo 1ª" rows="2"></textarea>
+                   </div>
+               </div>
+
+               <!-- Pulsanti compatti -->
+               <div style="margin-top: 8px; text-align: center;">
+                   <button type="button" class="btn btn-warning" onclick="resetSupplier(${index})" style="padding: 3px 8px; font-size: 10px; margin: 2px;">
+                       Reset
                    </button>
-                   <div class="transfer-details" id="transfer-details-${index}" style="display:none;"></div>
-               </div>
-               
-               <div class="section-divider"></div>
-
-               <div class="form-row">
-                   <span class="form-label">Tipo Lavorazione (A):</span>
-                   <div class="form-input">
-                       <input type="text" class="form-control tipo-lavorazione-a combination-result" readonly value="N/D">
-                   </div>
-               </div>
-               <div class="form-row">
-                   <span class="form-label">Tipo Lavorazione (B):</span>
-                   <div class="form-input">
-                       <input type="text" class="form-control tipo-lavorazione-b combination-result" readonly value="N/D">
-                   </div>
-               </div>
-               <div class="form-row">
-                   <span class="form-label">Tipo Lavorazione (C):</span>
-                   <div class="form-input">
-                       <input type="text" class="form-control tipo-lavorazione-c combination-result" readonly value="N/D">
-                   </div>
-               </div>
-               
-               <div class="section-divider"></div>
-
-               <div class="form-row">
-                   <span class="form-label">Giacenza (Kg):</span>
-                   <div class="form-input">
-                       <input type="number" class="form-control giacenza-fornitore auto-sum-field" readonly value="0">
-                   </div>
-               </div>
-               <div class="form-row">
-                   <span class="form-label">Note Lavorazione:</span>
-                   <div class="form-input">
-                       <textarea class="form-control note-lavorazione" rows="2"></textarea>
-                   </div>
-               </div>
-               <div class="text-center mt-3">
-                   <button type="button" class="btn btn-danger btn-sm" onclick="removeSupplier(${index})">
-                       <i class="bi bi-trash"></i> Rimuovi Fornitore
+                   <button type="button" class="btn btn-danger" onclick="removeSupplier(${index})" style="padding: 3px 8px; font-size: 10px; margin: 2px;">
+                       Rimuovi
                    </button>
                </div>
            </div>
        `;
    }
 
-   // Aggiungi fornitore al programma
-   function addSupplier() {
-       supplierCount++;
-       $('#suppliers-container').append(createSupplierCard(supplierCount));
-       $('#suppliers-count').text(supplierCount);
-       updateSupplierOptions();
-       initializeSelect2();
-
-       // Set default yields for the new supplier
-       const agrume = $('#tipo-agrume-giornaliero').val();
-       if (agrume) {
-           const currentMonth = new Date($('#data-lavorazione').val()).getMonth() + 1; // 1-indexed month
-           const primaYield = yieldsData[agrume]?.prima[currentMonth] || calculateAutoYields(agrume).prima;
-           const secondaYield = yieldsData[agrume]?.seconda[currentMonth] || calculateAutoYields(agrume).seconda;
-           const torchiatoYield = yieldsData[agrume]?.torchiato[currentMonth] || calculateAutoYields(agrume).torchiato;
-
-           $(`.supplier-card[data-supplier-index="${supplierCount}"] .resa-prima`).val(primaYield);
-           $(`.supplier-card[data-supplier-index="${supplierCount}"] .resa-seconda`).val(secondaYield);
-           $(`.supplier-card[data-supplier-index="${supplierCount}"] .resa-torchiato`).val(torchiatoYield);
-       }
-
-       calculateOverallTotals();
-       updateLastRevision();
-
-       // Add new supplier to all combination dropdowns
-       const newOption = new Option(`F${supplierCount} - Nuovo Fornitore`, supplierCount, false, false);
-       $('#combinazione-fornitori-a').append(newOption).trigger('change');
-       $('#combinazione-fornitori-b').append(newOption).trigger('change');
-       $('#combinazione-fornitori-c').append(newOption).trigger('change');
-
-       // Ensure combination section is visible
-       $('#combinazioni-section').removeClass('hidden-field');
-   }
-
-   // Rimuovi fornitore
-   function removeSupplier(index) {
-       $(`.supplier-card[data-supplier-index="${index}"]`).remove();
-       
-       // Update supplierCount and re-index remaining cards
-       supplierCount = 0;
-       $('#suppliers-container .supplier-card').each(function(i) {
-           const newIndex = i + 1;
-           $(this).attr('data-supplier-index', newIndex);
-           $(this).find('.supplier-header').html(`F${newIndex} - <span class="supplier-name">${$(this).find('.supplier-name').text()}</span>`);
-           $(this).find('.quantita-fornitore').attr('oninput', `calculateSupplierTotals(${newIndex})`);
-           $(this).find('.succo-prima-trasferito').attr('oninput', `calculateSupplierTotals(${newIndex})`);
-           $(this).find('.succo-seconda-trasferito').attr('oninput', `calculateSupplierTotals(${newIndex})`);
-           $(this).find('.torchiato-trasferito').attr('oninput', `calculateSupplierTotals(${newIndex})`);
-           $(this).find('.aggiungi-trasferimento').attr('data-supplier-index', newIndex);
-           $(this).find('.transfer-details').attr('id', `transfer-details-${newIndex}`);
-           $(this).find('.btn-danger').attr('onclick', `removeSupplier(${newIndex})`);
-           supplierCount++;
-       });
-       $('#suppliers-count').text(supplierCount);
-       updateSupplierOptions();
-       calculateOverallTotals();
-       updateLastRevision();
-
-       // Remove from combination dropdowns
-       $(`#combinazione-fornitori-a option[value="${index}"]`).remove();
-       $(`#combinazione-fornitori-b option[value="${index}"]`).remove();
-       $(`#combinazione-fornitori-c option[value="${index}"]`).remove();
-       
-       // Re-trigger change to update selected values visually
-       $('#combinazione-fornitori-a, #combinazione-fornitori-b, #combinazione-fornitori-c').trigger('change');
-
-       // Reset supplier card color if it was part of a combination
-       for (const comboType in activeCombinations) {
-           activeCombinations[comboType].suppliers = activeCombinations[comboType].suppliers.filter(s => s !== index);
-           resetSupplierColor(index); // Reset color for the removed supplier
-           applyCombinationColors(); // Re-apply colors for remaining combinations
-       }
-   }
-
-   // Aggiorna nome fornitore nel header della card
+   // Funzioni di gestione
    window.updateSupplierName = function(index) {
-       const selectElement = $(`.supplier-card[data-supplier-index="${index}"] .nome-fornitore`);
-       const selectedValue = selectElement.val();
-       const supplierNameSpan = $(`.supplier-card[data-supplier-index="${index}"] .supplier-name`);
-       const altroInput = $(`.supplier-card[data-supplier-index="${index}"] .altro-fornitore-input`);
-       const altroText = $(`.supplier-card[data-supplier-index="${index}"] .altro-fornitore-text`);
-
-       if (selectedValue === 'ALTRO') {
-           altroInput.removeClass('hidden-field');
-           altroText.focus();
-           supplierNameSpan.text('ALTRO');
-           altroText.off('input').on('input', function() {
-               supplierNameSpan.text($(this).val() || 'ALTRO');
-               updateSupplierOptions(); // Update options when "Altro" text changes
-           });
+       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+       const nome = card.find('.nome-fornitore').val();
+       const altroField = card.find('.altro-fornitore');
+       
+       if (nome === 'ALTRO') {
+           altroField.removeClass('hidden-field');
        } else {
-           altroInput.addClass('hidden-field');
-           supplierNameSpan.text(selectedValue || 'Nuovo Fornitore');
-           altroText.off('input');
+           altroField.addClass('hidden-field').val('');
        }
-       updateSupplierOptions();
+       
+       const displayName = nome === 'ALTRO' ? (altroField.val() || 'Altro Fornitore') : nome;
+       card.find('.supplier-name').text(displayName || 'Nuovo Fornitore');
+       
+       updateCombinazioneOptions();
+       updateAllTransferOptions();
    };
 
-   // Toggle input "Altro" per varietà
+   window.calculateSupplier = function(index) {
+       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+       
+       // Calcola giacenza
+       const entrata = parseFloat(card.find('.quantita-fornitore').val()) || 0;
+       const trasformata = parseFloat(card.find('.quantita-trasformata').val()) || 0;
+       const giacenza = entrata - trasformata;
+       card.find('.giacenza-fornitore').val(giacenza >= 0 ? giacenza : 0);
+       
+       // Calcola quantità prodotti
+       const resaPrima = parseFloat(card.find('.resa-prima').val()) || 0;
+       const quantitaPrimaField = card.find('.quantita-prima');
+       
+       if (trasformata > 0 && !quantitaPrimaField.hasClass('combination-result')) {
+           const quantitaPrima = (trasformata * resaPrima / 100).toFixed(1);
+           quantitaPrimaField.val(quantitaPrima);
+       } else if (trasformata === 0 && !quantitaPrimaField.hasClass('combination-result')) {
+           quantitaPrimaField.val('');
+       }
+       
+       calculateEndTime(index);
+       updateTotals();
+       updateSummarySection();
+       updateDistributionTotal(index);
+   };
+
+   window.calculateEndTime = function(index) {
+       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+       const quantitaTrasformata = parseFloat(card.find('.quantita-trasformata').val()) || 0;
+       const portata = parseFloat(card.find('.portata-impianto').val()) || 0;
+       const orarioInizio = card.find('.orario-inizio').val();
+       
+       if (quantitaTrasformata > 0 && portata > 0 && orarioInizio) {
+           const durataTotaleMinuti = Math.round((quantitaTrasformata / portata) * 60);
+           const ore = Math.floor(durataTotaleMinuti / 60);
+           const minuti = durataTotaleMinuti % 60;
+           
+           const dataLavorazione = $('#data-lavorazione').val();
+           if (!dataLavorazione) {
+               card.find('.orario-fine-display').html('');
+               return;
+           }
+           
+           const [oraInizio, minutiInizio] = orarioInizio.split(':').map(n => parseInt(n));
+           const dataInizio = new Date(dataLavorazione);
+           dataInizio.setHours(oraInizio, minutiInizio, 0, 0);
+           
+           const dataFine = new Date(dataInizio.getTime() + durataTotaleMinuti * 60 * 1000);
+           
+           const oreFine = dataFine.getHours().toString().padStart(2, '0');
+           const minutiFine = dataFine.getMinutes().toString().padStart(2, '0');
+           let orarioFineDisplay = `${oreFine}:${minutiFine}`;
+           
+           if (dataFine.getDate() !== dataInizio.getDate()) {
+               const giornoSuccessivo = dataFine.getDate();
+               orarioFineDisplay += ` (g.${giornoSuccessivo})`;
+           }
+           
+           card.find('.orario-fine-display').html(orarioFineDisplay);
+       } else {
+           card.find('.orario-fine-display').html('');
+       }
+   };
+
+   // MODIFICATO: Gestione colori bio con nuovi colori combinazioni
+   window.updateBioStyles = function(index) {
+       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+       const certificazione = card.find('.certificazione-prodotto').val();
+       const bioStatus = card.find('.bio-prima').val();
+       
+       const certificazioneField = card.find('.certificazione-prodotto');
+       const varietaField = card.find('.varieta-prodotto');
+       const lineaField = card.find('.linea-trasformazione');
+       const bioField = card.find('.bio-prima');
+       const destinazionePrimaLabel = card.find('.destinazione-prima-label');
+       
+       // Reset tutti gli stili
+       certificazioneField.removeClass('bio-red-field bio-black-field');
+       varietaField.removeClass('bio-red-field bio-black-field');
+       lineaField.removeClass('bio-red-field bio-black-field');
+       bioField.removeClass('bio-red-field bio-black-field');
+       destinazionePrimaLabel.removeClass('bio-red-text bio-black-text');
+       
+       const isBioSpecific = ['BIO EU', 'BIO DEM', 'BIO NTD', 'BIO DEM/NTD'].includes(certificazione);
+       
+       if (isBioSpecific) {
+           if (bioStatus === 'SI') {
+               certificazioneField.addClass('bio-red-field');
+               varietaField.addClass('bio-red-field');
+               lineaField.addClass('bio-red-field');
+               bioField.addClass('bio-red-field');
+               destinazionePrimaLabel.addClass('bio-red-text');
+           } else if (bioStatus === 'DECLASSATO') {
+               certificazioneField.addClass('bio-red-field');
+               varietaField.addClass('bio-red-field');
+               lineaField.addClass('bio-red-field');
+               bioField.addClass('bio-black-field');
+               destinazionePrimaLabel.addClass('bio-black-text');
+           } else if (bioStatus === 'NO') {
+               certificazioneField.addClass('bio-black-field');
+               varietaField.addClass('bio-black-field');
+               lineaField.addClass('bio-black-field');
+               bioField.addClass('bio-black-field');
+               destinazionePrimaLabel.addClass('bio-black-text');
+           }
+       }
+       
+       // Gestisci campo altro certificazione
+       const altroField = card.find('.altra-certificazione');
+       if (certificazione === 'ALTRO') {
+           altroField.removeClass('hidden-field');
+       } else {
+           altroField.addClass('hidden-field').val('');
+       }
+       
+       updateCombinazioneOptions();
+   };
+
    window.toggleAltroVarieta = function(index) {
-       const selectElement = $(`.supplier-card[data-supplier-index="${index}"] .varieta-agrume`);
-       const selectedValue = selectElement.val();
-       const altroInput = $(`.supplier-card[data-supplier-index="${index}"] .altro-varieta-input`);
-
-       if (selectedValue === 'ALTRO') {
-           altroInput.removeClass('hidden-field');
+       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+       const varieta = card.find('.varieta-prodotto').val();
+       const altroField = card.find('.altra-varieta');
+       
+       if (varieta === 'ALTRO') {
+           altroField.removeClass('hidden-field');
        } else {
-           altroInput.addClass('hidden-field');
+           altroField.addClass('hidden-field').val('');
        }
    };
 
-   // Aggiorna stato Bio/Convenzionale
-   window.updateBioStatus = function(index) {
+   window.toggleAltroTenore = function(index, type) {
        const card = $(`.supplier-card[data-supplier-index="${index}"]`);
-       const tipoProduzioneSelect = card.find('.tipo-produzione');
-       const fieldsToColor = card.find('.quantita-fornitore, .succo-prima, .succo-seconda, .torchiato, .scarto');
-       const header = card.find('.supplier-header');
-
-       if (tipoProduzioneSelect.val() === 'BIO') {
-           fieldsToColor.removeClass('bio-black-field').addClass('bio-red-field');
-           header.removeClass('bio-black-text').addClass('bio-red-text');
+       const tenore = card.find(`.tenore-polpa-${type}`).val();
+       const altroField = card.find(`.altro-tenore-${type}`);
+       
+       if (tenore === 'ALTRO') {
+           altroField.removeClass('hidden-field');
        } else {
-           fieldsToColor.removeClass('bio-red-field').addClass('bio-black-field');
-           header.removeClass('bio-red-text').addClass('bio-black-text');
+           altroField.addClass('hidden-field').val('');
        }
    };
 
-   // Calcolo totali fornitore
-   window.calculateSupplierTotals = function(index) {
+   window.toggleAltroBrix = function(index, type) {
        const card = $(`.supplier-card[data-supplier-index="${index}"]`);
-       const quantita = parseFloat(card.find('.quantita-fornitore').val()) || 0;
+       const brix = card.find(`.brix-${type}`).val();
+       const altroField = card.find(`.altro-brix-${type}`);
        
-       const selectedAgrume = $('#tipo-agrume-giornaliero').val();
-       const processingDate = $('#data-lavorazione').val();
-       const currentMonth = processingDate ? new Date(processingDate).getMonth() + 1 : (new Date().getMonth() + 1);
-
-       const primaYield = yieldsData[selectedAgrume]?.prima[currentMonth] || calculateAutoYields(selectedAgrume).prima;
-       const secondaYield = yieldsData[selectedAgrume]?.seconda[currentMonth] || calculateAutoYields(selectedAgrume).seconda;
-       const torchiatoYield = yieldsData[selectedAgrume]?.torchiato[currentMonth] || calculateAutoYields(selectedAgrume).torchiato;
-
-       const succoPrima = (quantita * primaYield / 100).toFixed(2);
-       const succoSeconda = (quantita * secondaYield / 100).toFixed(2);
-       const torchiato = (quantita * torchiatoYield / 100).toFixed(2);
-       const scarto = (quantita - succoPrima - succoSeconda - torchiato).toFixed(2);
-
-       card.find('.succo-prima').val(succoPrima);
-       card.find('.succo-seconda').val(succoSeconda);
-       card.find('.torchiato').val(torchiato);
-       card.find('.scarto').val(scarto);
-
-       // Calculate giacenza
-       const succoPrimaTrasferito = parseFloat(card.find('.succo-prima-trasferito').val()) || 0;
-       const succoSecondaTrasferito = parseFloat(card.find('.succo-seconda-trasferito').val()) || 0;
-       const torchiatoTrasferito = parseFloat(card.find('.torchiato-trasferito').val()) || 0;
-       
-       const giacenza = (quantita - (parseFloat(succoPrima) + succoPrimaTrasferito) - (parseFloat(succoSeconda) + succoSecondaTrasferito) - (parseFloat(torchiato) + torchiatoTrasferito) - parseFloat(scarto)).toFixed(2);
-       card.find('.giacenza-fornitore').val(giacenza);
-
-       calculateOverallTotals();
+       if (brix === 'ALTRO') {
+           altroField.removeClass('hidden-field');
+       } else {
+           altroField.addClass('hidden-field').val('');
+       }
    };
 
-   // Calcolo totali complessivi
-   function calculateOverallTotals() {
-       let totalEntrata = 0;
-       let totalTrasformata = 0;
-       let totalGiacenza = 0;
-
-       $('#suppliers-container .supplier-card').each(function() {
-           const quantita = parseFloat($(this).find('.quantita-fornitore').val()) || 0;
-           const succoPrima = parseFloat($(this).find('.succo-prima').val()) || 0;
-           const succoSeconda = parseFloat($(this).find('.succo-seconda').val()) || 0;
-           const torchiato = parseFloat($(this).find('.torchiato').val()) || 0;
-           const giacenza = parseFloat($(this).find('.giacenza-fornitore').val()) || 0;
-           const succoPrimaTrasferito = parseFloat($(this).find('.succo-prima-trasferito').val()) || 0;
-           const succoSecondaTrasferito = parseFloat($(this).find('.succo-seconda-trasferito').val()) || 0;
-           const torchiatoTrasferito = parseFloat($(this).find('.torchiato-trasferito').val()) || 0;
-
-           totalEntrata += quantita;
-           totalTrasformata += (succoPrima + succoSeconda + torchiato + succoPrimaTrasferito + succoSecondaTrasferito + torchiatoTrasferito);
-           totalGiacenza += giacenza;
-       });
-
-       $('#entrata-giornaliera-display').text(totalEntrata.toFixed(2) + ' Kg');
-       $('#trasformata-totale-display').text(totalTrasformata.toFixed(2) + ' Kg');
-       $('#giacenza-totale-display').text(totalGiacenza.toFixed(2) + ' Kg');
-
-       generateSummary();
-   }
-
-   // Aggiorna opzioni fornitori nei select2 per combinazioni
-   function updateSupplierOptions() {
-       const supplierOptions = [];
-       $('#suppliers-container .supplier-card').each(function() {
-           const index = $(this).data('supplier-index');
-           const name = $(this).find('.supplier-name').text();
-           supplierOptions.push({
-               id: index,
-               text: `F${index} - ${name}`
+   window.updateDistributionSection = function(index) {
+       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+       const selectedDestinations = Array.from(card.find('.destinazione-prima')[0].selectedOptions).map(option => option.value);
+       const distributionSection = card.find('.distribution-section');
+       const distributionContainer = distributionSection.find('.distribution-container');
+       const altroField = card.find('.altra-destinazione');
+       
+       if (selectedDestinations.includes('ALTRO')) {
+           altroField.removeClass('hidden-field');
+       } else {
+           altroField.addClass('hidden-field').val('');
+       }
+       
+       if (selectedDestinations.length >= 1) {
+           distributionSection.removeClass('hidden-field');
+           distributionContainer.empty();
+           
+           selectedDestinations.forEach(dest => {
+               const row = $(`
+                   <div class="distribution-row">
+                       <div class="distribution-dest">${dest}</div>
+                       <input type="number" class="distribution-qty" placeholder="kg" min="0" step="0.1" data-dest="${dest}" onchange="updateDistributionTotal(${index})">
+                   </div>
+               `);
+               distributionContainer.append(row);
            });
+           
+           updateTransferOptions(index);
+           updateDistributionTotal(index);
+       } else {
+           distributionSection.addClass('hidden-field');
+       }
+   };
+
+   window.updateDistributionTotal = function(index) {
+       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+       let distributedTotal = 0;
+       
+       card.find('.distribution-qty').each(function() {
+           const value = parseFloat($(this).val()) || 0;
+           distributedTotal += value;
        });
+       
+       const quantitaPrima = parseFloat(card.find('.quantita-prima').val()) || 0;
+       const remaining = quantitaPrima - distributedTotal;
+       
+       card.find('.remaining-value').text(remaining.toFixed(1));
+       
+       const transferSection = card.find('.transfer-section');
+       if (remaining > 0) {
+           transferSection.removeClass('hidden-field');
+           card.find('.transfer-qty').val(remaining.toFixed(1));
+       } else {
+           transferSection.addClass('hidden-field');
+           card.find('.transfer-qty').val('');
+       }
+       
+       // Aggiorna colore bordo
+       const distributionSectionEl = card.find('.distribution-section');
+       if (remaining < 0) {
+           distributionSectionEl.css('border-color', '#dc3545');
+       } else if (remaining === 0) {
+           distributionSectionEl.css('border-color', '#28a745');
+       } else {
+           distributionSectionEl.css('border-color', '#17a2b8');
+       }
+   };
 
-       // Clear existing options before adding new ones
-       $('#combinazione-fornitori-a').empty().append('<option value="">Seleziona combinazione A</option>');
-       $('#combinazione-fornitori-b').empty().append('<option value="">Seleziona combinazione B</option>');
-       $('#combinazione-fornitori-c').empty().append('<option value="">Seleziona combinazione C</option>');
-
-       // Add new options
-       supplierOptions.forEach(option => {
-           $('#combinazione-fornitori-a').append(new Option(option.text, option.id, false, false));
-           $('#combinazione-fornitori-b').append(new Option(option.text, option.id, false, false));
-           $('#combinazione-fornitori-c').append(new Option(option.text, option.id, false, false));
-       });
-
-       // Re-initialize select2 to update with new options
-       initializeSelect2();
-
-       // Restore previously selected values for combinations if they still exist
-       activeCombinations['prima'].suppliers.forEach(id => {
-           $(`#combinazione-fornitori-a option[value="${id}"]`).prop('selected', true);
-       });
-       activeCombinations['seconda'].suppliers.forEach(id => {
-           $(`#combinazione-fornitori-b option[value="${id}"]`).prop('selected', true);
-       });
-       activeCombinations['torchiato'].suppliers.forEach(id => {
-           $(`#combinazione-fornitori-c option[value="${id}"]`).prop('selected', true);
-       });
-
-       $('#combinazione-fornitori-a, #combinazione-fornitori-b, #combinazione-fornitori-c').trigger('change');
-   }
-
-   // Inizializza Select2
-   function initializeSelect2() {
-       $('.form-select').select2({
-           placeholder: "Seleziona",
-           allowClear: true
-       });
-       $('#combinazione-fornitori-a, #combinazione-fornitori-b, #combinazione-fornitori-c').select2({
-           placeholder: "Seleziona fornitori",
-           multiple: true,
-           allowClear: true
-       });
-   }
-
-   // Applica combinazione (generalizzata)
-   function applyCombination(type) {
-       const selectId = `combinazione-fornitori-${type}`;
-       const selectedSuppliers = $(`#${selectId}`).val() || [];
-       const combinedTypeName = type === 'prima' ? 'Succo 1ª' : (type === 'seconda' ? 'Succo 2ª' : 'Torchiato');
-
-       // Clear previous combination type and color
-       activeCombinations[type].suppliers.forEach(index => {
-           const card = $(`.supplier-card[data-supplier-index="${index}"]`);
-           card.find(`.tipo-lavorazione-${type}`).val('N/D').removeClass(activeCombinations[type].colorClass);
-           resetSupplierColor(index);
-       });
-
-       activeCombinations[type].suppliers = [];
-
-       // Apply new combination
-       selectedSuppliers.forEach(supplierIndex => {
-           const card = $(`.supplier-card[data-supplier-index="${supplierIndex}"]`);
-           card.find(`.tipo-lavorazione-${type}`).val(combinedTypeName);
-           activeCombinations[type].suppliers.push(parseInt(supplierIndex));
-       });
-       applyCombinationColors();
-       updateLastRevision();
-   }
-
-   // Reset combinazione (generalizzata)
-   function resetCombination(type) {
-       $(`#combinazione-fornitori-${type}`).val(null).trigger('change');
-       activeCombinations[type].suppliers.forEach(index => {
-           $(`.supplier-card[data-supplier-index="${index}"] .tipo-lavorazione-${type}`).val('N/D');
-           resetSupplierColor(index);
-       });
-       activeCombinations[type].suppliers = [];
-       applyCombinationColors();
-       updateLastRevision();
-   }
-
-   // Apply combination colors to supplier cards
-   function applyCombinationColors() {
-       // First, reset all supplier card colors to default
-       $('#suppliers-container .supplier-card').each(function() {
-           $(this).removeClass('combination-green combination-blue combination-purple');
-           $(this).find('.supplier-header').css('background', '').css('color', '#ffffff'); /* Reset to default */
-       });
-
-       // Apply colors based on active combinations
-       for (const type in activeCombinations) {
-           const colorClass = activeCombinations[type].colorClass;
-           const headerColor = combinationColors[type]; // Use specific color name for header
-
-           activeCombinations[type].suppliers.forEach(supplierIndex => {
-               const card = $(`.supplier-card[data-supplier-index="${supplierIndex}"]`);
-               card.addClass(colorClass);
+   function updateTransferOptions(index) {
+       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+       const transferSelect = card.find('.transfer-destination');
+       
+       transferSelect.empty().append('<option value="">Seleziona fornitore</option>');
+       
+       $('.supplier-card').each(function() {
+           const otherIndex = $(this).data('supplier-index');
+           if (otherIndex !== index) {
+               const nome = $(this).find('.nome-fornitore').val();
+               const altroNome = $(this).find('.altro-fornitore').val();
+               const displayName = nome === 'ALTRO' ? altroNome : nome;
                
-               // Apply specific header color based on the combination type
-               if (type === 'prima') {
-                   card.find('.supplier-header').css('background-color', '#28a745'); /* Green */
-               } else if (type === 'seconda') {
-                   card.find('.supplier-header').css('background-color', '#17a2b8'); /* Blue */
-               } else if (type === 'torchiato') {
-                   card.find('.supplier-header').css('background-color', '#6f42c1'); /* Purple */
+               if (displayName) {
+                   transferSelect.append(`<option value="${otherIndex}">F${otherIndex} - ${displayName}</option>`);
+               }
+           }
+       });
+   }
+
+   function updateAllTransferOptions() {
+       $('.supplier-card').each(function() {
+           const index = $(this).data('supplier-index');
+           updateTransferOptions(index);
+       });
+   }
+
+   window.executeTransfer = function(sourceIndex) {
+       const sourceCard = $(`.supplier-card[data-supplier-index="${sourceIndex}"]`);
+       const targetIndex = sourceCard.find('.transfer-destination').val();
+       const transferAmount = parseFloat(sourceCard.find('.transfer-qty').val()) || 0;
+       
+       if (!targetIndex) {
+           alert('Seleziona il fornitore di destinazione');
+           return;
+       }
+       
+       if (transferAmount <= 0) {
+           alert('Inserisci una quantità valida da trasferire');
+           return;
+       }
+       
+       const remaining = parseFloat(sourceCard.find('.remaining-value').text()) || 0;
+       if (transferAmount > remaining) {
+           alert('La quantità da trasferire non può essere superiore al rimanente');
+           return;
+       }
+       
+       const targetCard = $(`.supplier-card[data-supplier-index="${targetIndex}"]`);
+       if (targetCard.length === 0) {
+           alert('Fornitore di destinazione non trovato');
+           return;
+       }
+       
+       const sourceName = getSupplierDisplayName(sourceCard);
+       const targetName = getSupplierDisplayName(targetCard);
+       
+       if (!confirm(`Confermi il trasferimento di ${transferAmount} kg di succo 1ª da F${sourceIndex} (${sourceName}) a F${targetIndex} (${targetName})?`)) {
+           return;
+       }
+       
+       // Aggiorna quantità del fornitore di destinazione
+       const currentTargetQty = parseFloat(targetCard.find('.quantita-prima').val()) || 0;
+       const newTargetQty = currentTargetQty + transferAmount;
+       targetCard.find('.quantita-prima').val(newTargetQty.toFixed(1)).addClass('received-transfer');
+       
+       // Aggiorna dettagli trasferimento
+       updateTransferDetails(targetCard, sourceIndex, sourceName, transferAmount);
+       
+       // Salva trasferimento
+       if (!transferData[targetIndex]) {
+           transferData[targetIndex] = [];
+       }
+       transferData[targetIndex].push({
+           fromSupplier: sourceIndex,
+           fromName: sourceName,
+           amount: transferAmount,
+           timestamp: new Date().toLocaleTimeString('it-IT')
+       });
+       
+       // Reset campi sorgente
+       sourceCard.find('.transfer-destination').val('');
+       sourceCard.find('.transfer-qty').val('');
+       
+       updateDistributionTotal(targetIndex);
+       updateDistributionTotal(sourceIndex);
+       
+       alert(`Trasferimento completato!\n${transferAmount} kg trasferiti da F${sourceIndex} (${sourceName}) a F${targetIndex} (${targetName})\nNuova quantità F${targetIndex}: ${newTargetQty.toFixed(1)} kg`);
+   };
+
+   function getSupplierDisplayName(card) {
+       const nome = card.find('.nome-fornitore').val();
+       const altroNome = card.find('.altro-fornitore').val();
+       return nome === 'ALTRO' ? altroNome : nome;
+   }
+
+   function updateTransferDetails(targetCard, sourceIndex, sourceName, amount) {
+       const detailsContainer = targetCard.find('.transfer-details');
+       detailsContainer.removeClass('hidden-field');
+       
+       let currentDetails = detailsContainer.html();
+       const newDetail = `<div><strong>+${amount} kg</strong> da F${sourceIndex} (${sourceName})</div>`;
+       
+       if (currentDetails) {
+           detailsContainer.html(currentDetails + newDetail);
+       } else {
+           detailsContainer.html('<strong>Trasferimenti:</strong>' + newDetail);
+       }
+   }
+
+   // MODIFICATO: Reset fornitore con ripristino colore grigio
+   window.resetSupplier = function(index) {
+       if (confirm('Sei sicuro di voler resettare tutti i campi di questo fornitore?')) {
+           const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+           const agrume = $('#tipo-agrume-giornaliero').val();
+           const yields = agrume ? calculateAutoYields(agrume) : { prima: 33, seconda: 5, torchiato: 6 };
+           
+           // Reset colori combinazione
+           card.removeClass('combination-verde combination-azzurro combination-viola');
+           card.find('.supplier-header').removeClass('combination-verde combination-azzurro combination-viola');
+           
+           // Rimuovi riferimenti dalle combinazioni
+           ['verde', 'azzurro', 'viola'].forEach(color => {
+               const supplierIndex = combinationData[color].indexes.indexOf(index);
+               if (supplierIndex > -1) {
+                   combinationData[color].indexes.splice(supplierIndex, 1);
+                   combinationData[color].details = combinationData[color].details.filter(d => d.supplierIndex !== index);
+               }
+           });
+           
+           // Reset tutti i campi
+           card.find('.nome-fornitore').val('');
+           card.find('.altro-fornitore').val('').addClass('hidden-field');
+           card.find('.quantita-fornitore').val('');
+           card.find('.quantita-trasformata').val('');
+           card.find('.giacenza-fornitore').val('');
+           card.find('.certificazione-prodotto').val('');
+           card.find('.altra-certificazione').val('').addClass('hidden-field');
+           card.find('.varieta-prodotto').val('');
+           card.find('.altra-varieta').val('').addClass('hidden-field');
+           card.find('.linea-trasformazione').val('');
+           card.find('.portata-impianto').val('');
+           card.find('.orario-inizio').val('');
+           card.find('.orario-fine-display').html('');
+           
+           // Reset rese
+           card.find('.resa-prima').val(yields.prima);
+           
+           // Reset quantità prodotti
+           card.find('.quantita-prima').val('').removeClass('combination-result received-transfer');
+           
+           // Reset destinazioni
+           card.find('.destinazione-prima')[0].selectedIndex = -1;
+           
+           // Reset caratteristiche
+           card.find('.tenore-polpa-prima').val('STANDARD');
+           card.find('.brix-prima').val('NAT');
+           card.find('.bio-prima').val('SI');
+           card.find('.pastorizzato-prima').val('SI');
+           card.find('.conservato-prima').val('NO');
+           card.find('.note-prima').val('');
+           
+           // Reset sezioni
+           card.find('.distribution-section').addClass('hidden-field');
+           card.find('.transfer-details').addClass('hidden-field').html('');
+           
+           // Reset nome header
+           card.find('.supplier-name').text('Nuovo Fornitore');
+           
+           // Rimuovi dati trasferimenti
+           delete transferData[index];
+           
+           updateBioStyles(index);
+           updateTotals();
+           updateCombinazioneOptions();
+           updateSummarySection();
+           
+           alert('Fornitore resettato con successo!');
+       }
+   };
+
+   window.removeSupplier = function(index) {
+       if (confirm('Sei sicuro di voler rimuovere questo fornitore?')) {
+           // Rimuovi riferimenti dalle combinazioni
+           ['verde', 'azzurro', 'viola'].forEach(color => {
+               const supplierIndex = combinationData[color].indexes.indexOf(index);
+               if (supplierIndex > -1) {
+                   combinationData[color].indexes.splice(supplierIndex, 1);
+                   combinationData[color].details = combinationData[color].details.filter(d => d.supplierIndex !== index);
+               }
+           });
+           
+           $(`.supplier-card[data-supplier-index="${index}"]`).remove();
+           
+           // Rimuovi dati trasferimenti
+           delete transferData[index];
+           Object.keys(transferData).forEach(key => {
+               transferData[key] = transferData[key].filter(transfer => 
+                   transfer.fromSupplier !== index
+               );
+           });
+           
+           updateTotals();
+           updateCombinazioneOptions();
+           toggleCombinazioniSection();
+           updateSummarySection();
+           updateAllTransferOptions();
+           updateSuppliersCount();
+       }
+   };
+
+   function updateTotals() {
+       let totaleEntrata = 0;
+       let totaleTrasformata = 0;
+       let totaleGiacenza = 0;
+       
+       $('.supplier-card').each(function() {
+           const entrata = parseFloat($(this).find('.quantita-fornitore').val()) || 0;
+           const trasformata = parseFloat($(this).find('.quantita-trasformata').val()) || 0;
+           const giacenza = parseFloat($(this).find('.giacenza-fornitore').val()) || 0;
+           
+           totaleEntrata += entrata;
+           totaleTrasformata += trasformata;
+           totaleGiacenza += giacenza;
+       });
+       
+       $('#entrata-giornaliera-display').text(totaleEntrata.toLocaleString());
+       $('#trasformata-totale-display').text(totaleTrasformata.toLocaleString());
+       $('#giacenza-totale-display').text(totaleGiacenza.toLocaleString());
+   }
+
+   function updateSuppliersCount() {
+       const count = $('.supplier-card').length;
+       $('#suppliers-count').text(count);
+   }
+
+   // MODIFICATO: Aggiornamento opzioni combinazioni con colori
+   function updateCombinazioneOptions() {
+       const selectVerde = $('#combinazione-fornitori-verde');
+       const selectAzzurro = $('#combinazione-fornitori-azzurro');
+       const selectViola = $('#combinazione-fornitori-viola');
+       
+       selectVerde.empty().append('<option value="">Seleziona combinazione Verde</option>');
+       selectAzzurro.empty().append('<option value="">Seleziona combinazione Azzurro</option>');
+       selectViola.empty().append('<option value="">Seleziona combinazione Viola</option>');
+       
+       const fornitori = [];
+       $('.supplier-card').each(function() {
+           const index = $(this).data('supplier-index');
+           const nome = $(this).find('.nome-fornitore').val();
+           const altroNome = $(this).find('.altro-fornitore').val();
+           const nomeFornitore = nome === 'ALTRO' ? altroNome : nome;
+           const certificazione = $(this).find('.certificazione-prodotto').val() || 'N/D';
+           const linea = $(this).find('.linea-trasformazione').val() || 'N/D';
+           
+           if (nomeFornitore) {
+               fornitori.push({ 
+                   index: index, 
+                   nome: nomeFornitore,
+                   certificazione: certificazione,
+                   linea: linea
+               });
+           }
+       });
+       
+       // Combinazioni di 2 fornitori
+       for (let i = 0; i < fornitori.length; i++) {
+           for (let j = i + 1; j < fornitori.length; j++) {
+               const combo = `${fornitori[i].index},${fornitori[j].index}`;
+               const label = `F${fornitori[i].index} - ${fornitori[i].nome} + F${fornitori[j].index} - ${fornitori[j].nome}`;
+               selectVerde.append(`<option value="${combo}">${label}</option>`);
+               selectAzzurro.append(`<option value="${combo}">${label}</option>`);
+               selectViola.append(`<option value="${combo}">${label}</option>`);
+           }
+       }
+       
+       // Combinazioni di 3 fornitori
+       for (let i = 0; i < fornitori.length; i++) {
+           for (let j = i + 1; j < fornitori.length; j++) {
+               for (let k = j + 1; k < fornitori.length; k++) {
+                   const combo = `${fornitori[i].index},${fornitori[j].index},${fornitori[k].index}`;
+                   const label = `F${fornitori[i].index} - ${fornitori[i].nome} + F${fornitori[j].index} - ${fornitori[j].nome} + F${fornitori[k].index} - ${fornitori[k].nome}`;
+                   selectVerde.append(`<option value="${combo}">${label}</option>`);
+                   selectAzzurro.append(`<option value="${combo}">${label}</option>`);
+                   selectViola.append(`<option value="${combo}">${label}</option>`);
+               }
+           }
+       }
+   }
+
+   function toggleCombinazioniSection() {
+       const hasSuppliers = $('.supplier-card').length > 0;
+       
+       if (hasSuppliers) {
+           $('#combinazioni-section').removeClass('hidden-field');
+       } else {
+           $('#combinazioni-section').addClass('hidden-field');
+       }
+   }
+
+   // MODIFICATO: Sezione riepilogo compatta con giallo ocra
+   function updateSummarySection() {
+       let totalSeconda = 0;
+       let totalTorchiato = 0;
+       const yields = calculateAutoYields($('#tipo-agrume-giornaliero').val() || 'LIMONE');
+       
+       $('.supplier-card').each(function() {
+           const quantitaTrasformata = parseFloat($(this).find('.quantita-trasformata').val()) || 0;
+           const linea = $(this).find('.linea-trasformazione').val();
+           
+           if (quantitaTrasformata > 0) {
+               if (linea === 'BOE/1100') {
+                   totalSeconda += (quantitaTrasformata * yields.seconda / 100);
+               }
+               totalTorchiato += (quantitaTrasformata * yields.torchiato / 100);
+           }
+       });
+       
+       const summarySection = $('#summary-section');
+       
+       if (totalSeconda > 0 || totalTorchiato > 0) {
+           summarySection.removeClass('hidden-field');
+           
+           let summaryHtml = '';
+           
+           if (totalSeconda > 0) {
+               summaryHtml += `
+                   <div class="summary-box">
+                       <div class="summary-title">TOTALI SUCCO 2ª</div>
+                       <div class="summary-item">
+                           <span>Quantità:</span>
+                           <span class="summary-value">${totalSeconda.toFixed(1)} kg</span>
+                       </div>
+                       <div class="summary-item">
+                           <span>Destinazione:</span>
+                           <input type="text" class="summary-input" id="destinazione-seconda-totale" placeholder="Destinazione" value="NAT IN TINI">
+                       </div>
+                       <div class="summary-item">
+                           <span>Polpa:</span>
+                           <select class="summary-input" id="polpa-seconda-totale">
+                               <option value="STANDARD">STANDARD</option>
+                               <option value="LIMPIDO">LIMPIDO</option>
+                               <option value="<1%" selected><1%</option>
+                               <option value="2%">2%</option>
+                               <option value="3%">3%</option>
+                               <option value="6%">6%</option>
+                           </select>
+                       </div>
+                       <div class="summary-item">
+                           <span>°BX:</span>
+                           <select class="summary-input" id="brix-seconda-totale">
+                               <option value="NAT" selected>NAT</option>
+                               <option value="20">20</option>
+                               <option value="32">32</option>
+                               <option value="40">40</option>
+                               <option value="45">45</option>
+                               <option value="55">55</option>
+                               <option value="60">60</option>
+                               <option value="65">65</option>
+                           </select>
+                       </div>
+                       <div class="summary-item">
+                           <span>Pastorizzato:</span>
+                           <select class="summary-input" id="pastorizzato-seconda-totale">
+                               <option value="SI" selected>SI</option>
+                               <option value="NO">NO</option>
+                           </select>
+                       </div>
+                       <div class="summary-item">
+                           <span>Conservato:</span>
+                           <select class="summary-input" id="conservato-seconda-totale">
+                               <option value="SI" selected>SI</option>
+                               <option value="NO">NO</option>
+                           </select>
+                       </div>
+                       <div class="summary-notes">
+                           <strong>Note:</strong>
+                           <textarea class="summary-textarea" id="note-seconda-totale" placeholder="Note Succo 2ª"></textarea>
+                       </div>
+                   </div>
+               `;
+           }
+           
+           if (totalTorchiato > 0) {
+               summaryHtml += `
+                   <div class="summary-box">
+                       <div class="summary-title">TOTALI TORCHIATO</div>
+                       <div class="summary-item">
+                           <span>Quantità:</span>
+                           <span class="summary-value">${totalTorchiato.toFixed(1)} kg</span>
+                       </div>
+                       <div class="summary-item">
+                           <span>Destinazione:</span>
+                           <input type="text" class="summary-input" id="destinazione-torchiato-totale" placeholder="Destinazione" value="CONCENTRATO">
+                       </div>
+                       <div class="summary-item">
+                           <span>Polpa:</span>
+                           <select class="summary-input" id="polpa-torchiato-totale">
+                               <option value="STANDARD">STANDARD</option>
+                               <option value="LIMPIDO">LIMPIDO</option>
+                               <option value="<1%" selected><1%</option>
+                               <option value="2%">2%</option>
+                               <option value="3%">3%</option>
+                               <option value="6%">6%</option>
+                           </select>
+                       </div>
+                       <div class="summary-item">
+                           <span>°BX:</span>
+                           <select class="summary-input" id="brix-torchiato-totale">
+                               <option value="NAT">NAT</option>
+                               <option value="20">20</option>
+                               <option value="32">32</option>
+                               <option value="40">40</option>
+                               <option value="45" selected>45</option>
+                               <option value="48">48</option>
+                               <option value="50">50</option>
+                               <option value="55">55</option>
+                               <option value="60">60</option>
+                               <option value="65">65</option>
+                           </select>
+                       </div>
+                       <div class="summary-item">
+                           <span>Pastorizzato:</span>
+                           <select class="summary-input" id="pastorizzato-torchiato-totale">
+                               <option value="SI" selected>SI</option>
+                               <option value="NO">NO</option>
+                           </select>
+                       </div>
+                       <div class="summary-item">
+                           <span>Conservato:</span>
+                           <select class="summary-input" id="conservato-torchiato-totale">
+                               <option value="SI">SI</option>
+                               <option value="NO" selected>NO</option>
+                           </select>
+                       </div>
+                       <div class="summary-notes">
+                           <strong>Note:</strong>
+                           <textarea class="summary-textarea" id="note-torchiato-totale" placeholder="Note Torchiato"></textarea>
+                       </div>
+                   </div>
+               `;
+           }
+           
+           summarySection.html(summaryHtml);
+       } else {
+           summarySection.addClass('hidden-field');
+       }
+   }
+
+   // MODIFICATO: Gestione combinazioni con colori
+   function getLastSupplierInCombination(comboValue) {
+       const indexes = comboValue.split(',').map(i => parseInt(i));
+       const maxIndex = Math.max(...indexes);
+       return $(`.supplier-card[data-supplier-index="${maxIndex}"]`);
+   }
+
+   function applyCombination(color) {
+       const selectedCombo = $(`#combinazione-fornitori-${color}`).val();
+       if (!selectedCombo) {
+           alert(`Seleziona prima una combinazione di fornitori ${color}`);
+           return;
+       }
+       
+       const indexes = selectedCombo.split(',');
+       let totale = 0;
+       let combinationDetails = [];
+       let combinationSupplierIndexes = indexes.map(i => parseInt(i));
+       
+       indexes.forEach(index => {
+           const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+           
+           const nome = card.find('.nome-fornitore').val();
+           const altroNome = card.find('.altro-fornitore').val();
+           const nomeFornitore = nome === 'ALTRO' ? altroNome : nome;
+          const certificazione = card.find('.certificazione-prodotto').val() || 'N/D';
+           const linea = card.find('.linea-trasformazione').val() || 'N/D';
+           
+           const quantitaTrasformata = parseFloat(card.find('.quantita-trasformata').val()) || 0;
+           const resaPrima = parseFloat(card.find('.resa-prima').val()) || 0;
+           
+           if (quantitaTrasformata > 0) {
+               totale += (quantitaTrasformata * resaPrima / 100);
+               
+               combinationDetails.push({
+                   nome: nomeFornitore,
+                   certificazione: certificazione,
+                   linea: linea,
+                   quantita: quantitaTrasformata,
+                   resa: resaPrima,
+                   risultato: (quantitaTrasformata * resaPrima / 100).toFixed(1),
+                   supplierIndex: parseInt(index)
+               });
+           }
+       });
+       
+       const lastSupplierInCombo = getLastSupplierInCombination(selectedCombo);
+       if (lastSupplierInCombo.length > 0) {
+           const quantitaPrimaField = lastSupplierInCombo.find('.quantita-prima');
+           quantitaPrimaField.val(totale.toFixed(1));
+           quantitaPrimaField.addClass('combination-result');
+           quantitaPrimaField.attr('data-combination-type', color);
+           
+           // Applica colori a tutti i fornitori della combinazione
+           indexes.forEach(index => {
+               const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+               card.addClass(`combination-${color}`);
+               card.find('.supplier-header').addClass(`combination-${color}`);
+               
+               // Aggiorna header con simbolo colore
+               const currentHeader = card.find('.supplier-header').text();
+               const colorSymbol = color === 'verde' ? '(V)' : color === 'azzurro' ? '(A)' : '(P)';
+               if (!currentHeader.includes('(V)') && !currentHeader.includes('(A)') && !currentHeader.includes('(P)')) {
+                   card.find('.supplier-header').html(currentHeader + ' ' + colorSymbol);
+               }
+           });
+           
+           // Salva combinazione
+           combinationData[color] = {
+               indexes: combinationSupplierIndexes,
+               details: combinationDetails
+           };
+           
+           updateDistributionTotal(lastSupplierInCombo.data('supplier-index'));
+           
+           const colorText = color.charAt(0).toUpperCase() + color.slice(1);
+           alert(`Combinazione ${colorText} applicata! Quantità succo 1ª aggiornata a ${totale.toFixed(1)} kg\n\nDettaglio:\n${combinationDetails.map(d => `F${d.supplierIndex} - ${d.nome}: ${d.quantita}kg × ${d.resa}% = ${d.risultato}kg`).join('\n')}`);
+       }
+   }
+
+   function resetCombination(color) {
+       // Rimuovi colori da tutti i fornitori della combinazione
+       if (combinationData[color] && combinationData[color].indexes.length > 0) {
+           combinationData[color].indexes.forEach(index => {
+               const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+               const quantitaPrimaField = card.find('.quantita-prima');
+               const combinationType = quantitaPrimaField.attr('data-combination-type');
+               
+               if (combinationType === color) {
+                   card.removeClass(`combination-${color}`);
+                   card.find('.supplier-header').removeClass(`combination-${color}`);
+                   
+                   // Rimuovi simbolo colore dall'header
+                   const currentHeader = card.find('.supplier-header').html();
+                   const cleanHeader = currentHeader.replace(/\s*\([VAP]\)/, '');
+                   card.find('.supplier-header').html(cleanHeader);
+                   
+                   quantitaPrimaField.removeClass('combination-result');
+                   quantitaPrimaField.removeAttr('data-combination-type');
+                   
+                   // Ricalcola valore normale
+                   const cardIndex = card.data('supplier-index');
+                   calculateSupplier(cardIndex);
+                   updateDistributionTotal(cardIndex);
                }
            });
        }
-
-       // Set combination group background colors
-       $('#combination-group-a').removeClass('combination-green-bg combination-blue-bg combination-purple-bg');
-       $('#combination-group-b').removeClass('combination-green-bg combination-blue-bg combination-purple-bg');
-       $('#combination-group-c').removeClass('combination-green-bg combination-blue-bg combination-purple-bg');
-
-       if (activeCombinations['prima'].suppliers.length > 0) {
-           $('#combination-group-a').addClass('combination-green-bg');
-       }
-       if (activeCombinations['seconda'].suppliers.length > 0) {
-           $('#combination-group-b').addClass('combination-blue-bg');
-       }
-       if (activeCombinations['torchiato'].suppliers.length > 0) {
-           $('#combination-group-c').addClass('combination-purple-bg');
-       }
+       
+       $(`#combinazione-fornitori-${color}`).val('');
+       
+       // Reset dati combinazione
+       combinationData[color] = { indexes: [], details: [] };
+       
+       const colorText = color.charAt(0).toUpperCase() + color.slice(1);
+       alert(`Combinazione ${colorText} rimossa. I valori sono stati ricalcolati.`);
    }
 
-   // Reset supplier card color to default
-   function resetSupplierColor(index) {
-       const card = $(`.supplier-card[data-supplier-index="${index}"]`);
-       card.removeClass('combination-green combination-blue combination-purple');
-       card.find('.supplier-header').css('background', '#6c757d').css('color', '#ffffff');
-   }
-
-   // Genera riepilogo
-   function generateSummary() {
-       let summaryHtml = '';
-       let totalKgPrima = 0;
-       let totalKgSeconda = 0;
-       let totalKgTorchiato = 0;
-       let totalKgScarto = 0;
-       let totalKgTrasferitoPrima = 0;
-       let totalKgTrasferitoSeconda = 0;
-       let totalKgTrasferitoTorchiato = 0;
-
-       $('#suppliers-container .supplier-card').each(function() {
-           const succoPrima = parseFloat($(this).find('.succo-prima').val()) || 0;
-           const succoSeconda = parseFloat($(this).find('.succo-seconda').val()) || 0;
-           const torchiato = parseFloat($(this).find('.torchiato').val()) || 0;
-           const scarto = parseFloat($(this).find('.scarto').val()) || 0;
-           const succoPrimaTrasferito = parseFloat($(this).find('.succo-prima-trasferito').val()) || 0;
-           const succoSecondaTrasferito = parseFloat($(this).find('.succo-seconda-trasferito').val()) || 0;
-           const torchiatoTrasferito = parseFloat($(this).find('.torchiato-trasferito').val()) || 0;
-
-           totalKgPrima += succoPrima;
-           totalKgSeconda += succoSeconda;
-           totalKgTorchiato += torchiato;
-           totalKgScarto += scarto;
-           totalKgTrasferitoPrima += succoPrimaTrasferito;
-           totalKgTrasferitoSeconda += succoSecondaTrasferito;
-           totalKgTrasferitoTorchiato += torchiatoTrasferito;
-       });
-
-       summaryHtml += `
-           <div class="summary-box">
-               <div class="summary-title">Riepilogo Totali</div>
-               <div class="summary-item">
-                   <span>Totale Succo 1ª Prodotto:</span>
-                   <span class="summary-value">${totalKgPrima.toFixed(2)} L</span>
-               </div>
-               <div class="summary-item">
-                   <span>Totale Succo 2ª Prodotto:</span>
-                   <span class="summary-value">${totalKgSeconda.toFixed(2)} L</span>
-               </div>
-               <div class="summary-item">
-                   <span>Totale Torchiato Prodotto:</span>
-                   <span class="summary-value">${totalKgTorchiato.toFixed(2)} L</span>
-               </div>
-               <div class="summary-item">
-                   <span>Totale Scarto:</span>
-                   <span class="summary-value">${totalKgScarto.toFixed(2)} Kg</span>
-               </div>
-               <hr>
-               <div class="summary-item">
-                   <span>Totale Succo 1ª Trasferito:</span>
-                   <span class="summary-value">${totalKgTrasferitoPrima.toFixed(2)} L</span>
-               </div>
-               <div class="summary-item">
-                   <span>Totale Succo 2ª Trasferito:</span>
-                   <span class="summary-value">${totalKgTrasferitoSeconda.toFixed(2)} L</span>
-               </div>
-               <div class="summary-item">
-                   <span>Totale Torchiato Trasferito:</span>
-                   <span class="summary-value">${totalKgTrasferitoTorchiato.toFixed(2)} L</span>
-               </div>
-           </div>
-           <div class="summary-box">
-               <div class="summary-title">Note Generali</div>
-               <textarea class="summary-textarea" id="note-generali" placeholder="Inserisci note generali sul programma..."></textarea>
-           </div>
-           <div class="summary-box">
-               <div class="summary-title">Destinazione Succhi / Torchiato</div>
-               <div class="distribution-section">
-                   <div class="remaining-qty" id="remaining-prima">Rimanente Succo 1ª: ${totalKgPrima.toFixed(2)} L</div>
-                   <div id="distribution-prima"></div>
-                   <button type="button" class="btn btn-sm btn-outline-info mt-2" onclick="addDistributionRow('prima')">Aggiungi Dest. 1ª</button>
-               </div>
-               <div class="distribution-section mt-3">
-                   <div class="remaining-qty" id="remaining-seconda">Rimanente Succo 2ª: ${totalKgSeconda.toFixed(2)} L</div>
-                   <div id="distribution-seconda"></div>
-                   <button type="button" class="btn btn-sm btn-outline-info mt-2" onclick="addDistributionRow('seconda')">Aggiungi Dest. 2ª</button>
-               </div>
-               <div class="distribution-section mt-3">
-                   <div class="remaining-qty" id="remaining-torchiato">Rimanente Torchiato: ${totalKgTorchiato.toFixed(2)} L</div>
-                   <div id="distribution-torchiato"></div>
-                   <button type="button" class="btn btn-sm btn-outline-info mt-2" onclick="addDistributionRow('torchiato')">Aggiungi Dest. Torchiato</button>
-               </div>
-           </div>
-       `;
-       $('#summary-section').html(summaryHtml).removeClass('hidden-field');
-       loadDistributionData();
-   }
-
-   // Aggiungi riga distribuzione per succhi/torchiato
-   window.addDistributionRow = function(type) {
-       const container = $(`#distribution-${type}`);
-       const rowId = `dist-${type}-${Date.now()}`;
-       const rowHtml = `
-           <div class="distribution-row" id="${rowId}">
-               <input type="text" class="form-control distribution-dest" placeholder="Destinazione">
-               <input type="number" class="form-control distribution-qty" min="0" value="0" oninput="calculateRemainingDistribution('${type}')">
-               <button type="button" class="btn btn-danger btn-sm" onclick="removeDistributionRow('${rowId}', '${type}')"><i class="bi bi-x"></i></button>
-           </div>
-       `;
-       container.append(rowHtml);
-       calculateRemainingDistribution(type);
-   }
-
-   // Rimuovi riga distribuzione
-   window.removeDistributionRow = function(rowId, type) {
-       $(`#${rowId}`).remove();
-       calculateRemainingDistribution(type);
-   }
-
-   // Calcola rimanente distribuzione
-   function calculateRemainingDistribution(type) {
-       let totalProduced = 0;
-       if (type === 'prima') {
-           $('#suppliers-container .supplier-card').each(function() {
-               totalProduced += parseFloat($(this).find('.succo-prima').val()) || 0;
-           });
-       } else if (type === 'seconda') {
-           $('#suppliers-container .supplier-card').each(function() {
-               totalProduced += parseFloat($(this).find('.succo-seconda').val()) || 0;
-           });
-       } else if (type === 'torchiato') {
-           $('#suppliers-container .supplier-card').each(function() {
-               totalProduced += parseFloat($(this).find('.torchiato').val()) || 0;
-           });
-       }
-
-       let totalDistributed = 0;
-       $(`#distribution-${type} .distribution-qty`).each(function() {
-           totalDistributed += parseFloat($(this).val()) || 0;
-       });
-
-       const remaining = (totalProduced - totalDistributed).toFixed(2);
-       $(`#remaining-${type}`).text(`Rimanente ${type === 'prima' ? 'Succo 1ª' : (type === 'seconda' ? 'Succo 2ª' : 'Torchiato')}: ${remaining} L`);
-   }
-
-   // Aggiungi dettagli trasferimento (modal o inline)
-   $(document).on('click', '.aggiungi-trasferimento', function() {
-       const supplierIndex = $(this).data('supplier-index');
-       const transferDetailsDiv = $(`#transfer-details-${supplierIndex}`);
-       transferDetailsDiv.toggle(); // Toggle visibility
-
-       if (transferDetailsDiv.is(':visible') && transferDetailsDiv.children().length === 0) {
-           transferDetailsDiv.append(`
-               <div class="transfer-row mt-2">
-                   <span class="form-label">Destinazione:</span>
-                   <input type="text" class="form-control transfer-destination" placeholder="Destinazione">
-               </div>
-               <div class="transfer-row">
-                   <span class="form-label">Note Trasferimento:</span>
-                   <textarea class="form-control transfer-note" rows="1"></textarea>
-               </div>
-           `);
-       }
-   });
-
-   // Gestione cambio tipo agrume
-   $('#tipo-agrume-giornaliero').on('change', function() {
-       const selectedAgrume = $(this).val();
-       $('#selected-agrume').text(selectedAgrume || 'N/D');
-
-       // Update variety options for all existing suppliers
-       $('#suppliers-container .supplier-card').each(function() {
-           const index = $(this).data('supplier-index');
-           const varietySelect = $(this).find('.varieta-agrume');
-           varietySelect.empty();
-           if (selectedAgrume && varietyOptions[selectedAgrume]) {
-               varietyOptions[selectedAgrume].forEach(v => {
-                   varietySelect.append(new Option(v.text, v.value));
-               });
-           } else {
-               varietySelect.append(new Option('Seleziona prima l\'agrume', ''));
-           }
-           varietySelect.trigger('change.select2'); // Update select2
-       });
-
-       // Update yields for all existing suppliers and recalculate totals
-       $('#suppliers-container .supplier-card').each(function() {
-           const index = $(this).data('supplier-index');
-           calculateSupplierTotals(index);
-       });
-
-       // Load yields data for the new agrume
-       loadYieldsForAgrume(selectedAgrume);
-   });
-
-   // Gestione cambio data lavorazione
-   $('#data-lavorazione').on('change', function() {
+   // Gestione modal rese
+   function openYieldsModal() {
        const selectedAgrume = $('#tipo-agrume-giornaliero').val();
-       if (selectedAgrume) {
-           loadYieldsForAgrume(selectedAgrume); // Reload yields based on new date's month
-           // Recalculate all supplier totals to apply new yields if month changed
-           $('#suppliers-container .supplier-card').each(function() {
-               const index = $(this).data('supplier-index');
-               calculateSupplierTotals(index);
-           });
-       }
-       updateLastRevision();
-   });
-
-   // Event Listener per Rese
-   $('#rese-button').on('click', function() {
-       const selectedAgrume = $('#tipo-agrume-giornaliero').val();
+       
        if (!selectedAgrume) {
-           alert('Seleziona prima un tipo di agrume per gestire le rese.');
+           alert('Seleziona prima il tipo di agrume nel programma principale');
            return;
        }
+       
        $('#agrume-selected').text(selectedAgrume);
-       loadYieldsForAgrume(selectedAgrume);
-       $('#yields-modal').show();
-   });
+       loadYieldsData(selectedAgrume);
+       $('#yields-modal').fadeIn();
+   }
 
-   // Chiudi Modal Rese
-   $('.close-yields').on('click', function() {
-       $('#yields-modal').hide();
-   });
+   function closeYieldsModal() {
+       $('#yields-modal').fadeOut();
+   }
 
-   // Salva Rese
-   $('#salva-rese').on('click', function() {
-       const agrume = $('#agrume-selected').text();
-       if (!yieldsData[agrume]) {
-           yieldsData[agrume] = {
+   function loadYieldsData(agrume) {
+       if (yieldsData[agrume]) {
+           const data = yieldsData[agrume];
+           
+           for (let month = 1; month <= 12; month++) {
+               const valuePrima = data.prima && data.prima[month] ? data.prima[month] : '';
+               const valueSeconda = data.seconda && data.seconda[month] ? data.seconda[month] : '';
+               const valueTorchiato = data.torchiato && data.torchiato[month] ? data.torchiato[month] : '';
+               
+               $(`.yield-input[data-type="prima"][data-month="${month}"]`).val(valuePrima);
+               $(`.yield-input[data-type="seconda"][data-month="${month}"]`).val(valueSeconda);
+               $(`.yield-input[data-type="torchiato"][data-month="${month}"]`).val(valueTorchiato);
+           }
+       } else {
+           $('.yield-input').val('');
+       }
+   }
+
+   function saveYieldsData() {
+       const selectedAgrume = $('#tipo-agrume-giornaliero').val();
+       
+       if (!selectedAgrume) {
+           alert('Nessun agrume selezionato');
+           return;
+       }
+       
+       if (!yieldsData[selectedAgrume]) {
+           yieldsData[selectedAgrume] = {
                prima: {},
                seconda: {},
                torchiato: {}
            };
        }
-
-       $('.yield-input').each(function() {
-           const type = $(this).data('type');
-           const month = $(this).data('month');
-           const value = parseFloat($(this).val());
-           yieldsData[agrume][type][month] = value;
-       });
-       saveYieldsToLocalStorage();
-       $('#yields-modal').hide();
-       alert('Rese salvate con successo!');
-
-       // After saving, recalculate all supplier totals with potentially updated yields
-       $('#suppliers-container .supplier-card').each(function() {
-           const index = $(this).data('supplier-index');
-           calculateSupplierTotals(index);
-       });
-   });
-
-   // Reset Rese nel modal
-   $('#reset-rese').on('click', function() {
-       if (confirm('Sei sicuro di voler resettare tutti i valori delle rese per questo agrume? Verranno ripristinati i valori di default.')) {
-           const agrume = $('#agrume-selected').text();
-           delete yieldsData[agrume]; // Remove data for this agrume
-           saveYieldsToLocalStorage();
-           loadYieldsForAgrume(agrume); // Reload default values
-           alert('Rese resettate ai valori di default.');
-       }
-   });
-
-   // Carica Rese dal Local Storage
-   function loadYieldsFromLocalStorage() {
-       const storedYields = localStorage.getItem('yieldsData');
-       if (storedYields) {
-           yieldsData = JSON.parse(storedYields);
-       }
-   }
-
-   // Salva Rese nel Local Storage
-   function saveYieldsToLocalStorage() {
-       localStorage.setItem('yieldsData', JSON.stringify(yieldsData));
-   }
-
-   // Carica i valori delle rese per l'agrume selezionato nel modal
-   function loadYieldsForAgrume(agrume) {
-       // Reset all input fields in the modal first
-       $('.yield-input').val('');
-
-       if (agrume && yieldsData[agrume]) {
-           for (const type in yieldsData[agrume]) {
-               for (const month in yieldsData[agrume][type]) {
-                   $(`.yield-input[data-type="${type}"][data-month="${month}"]`).val(yieldsData[agrume][type][month]);
-               }
+       
+       for (let month = 1; month <= 12; month++) {
+           const valuePrima = $(`.yield-input[data-type="prima"][data-month="${month}"]`).val();
+           const valueSeconda = $(`.yield-input[data-type="seconda"][data-month="${month}"]`).val();
+           const valueTorchiato = $(`.yield-input[data-type="torchiato"][data-month="${month}"]`).val();
+           
+           if (valuePrima) {
+               yieldsData[selectedAgrume].prima[month] = parseFloat(valuePrima);
            }
-       } else if (agrume) {
-           // If no custom data, load default auto-calculated values
-           const defaultYields = calculateAutoYields(agrume);
-           for (let month = 1; month <= 12; month++) {
-               $(`.yield-input[data-type="prima"][data-month="${month}"]`).val(defaultYields.prima);
-               $(`.yield-input[data-type="seconda"][data-month="${month}"]`).val(defaultYields.seconda);
-               $(`.yield-input[data-type="torchiato"][data-month="${month}"]`).val(defaultYields.torchiato);
+           if (valueSeconda) {
+               yieldsData[selectedAgrume].seconda[month] = parseFloat(valueSeconda);
+           }
+           if (valueTorchiato) {
+               yieldsData[selectedAgrume].torchiato[month] = parseFloat(valueTorchiato);
            }
        }
+       
+       alert(`Rese salvate con successo per ${selectedAgrume}!`);
    }
 
-   // Salva programma con nome su una cartella del computer
-   $('#salva-programma').on('click', async function() {
-       const agrume = $('#tipo-agrume-giornaliero').val();
-       const dataLavorazione = $('#data-lavorazione').val();
-       if (!agrume || !dataLavorazione) {
-           showSaveStatus('Selezionare tipo di agrume e data di lavorazione.', true);
-           return;
+   function resetYieldsData() {
+       if (confirm('Sei sicuro di voler cancellare tutti i dati di resa per questo agrume?')) {
+           $('.yield-input').val('');
+           
+           const selectedAgrume = $('#tipo-agrume-giornaliero').val();
+           if (selectedAgrume && yieldsData[selectedAgrume]) {
+               delete yieldsData[selectedAgrume];
+           }
+           
+           alert('Dati di resa cancellati');
        }
+   }
 
-       programData = {
-           agrume: agrume,
-           dataLavorazione: dataLavorazione,
-           suppliers: [],
-           activeCombinations: activeCombinations,
-           generalNotes: $('#note-generali').val(),
-           distribution: {
-               prima: [],
-               seconda: [],
-               torchiato: []
+   function updateVarietyOptions(agrume) {
+       $('.supplier-card').each(function() {
+           const varietaSelect = $(this).find('.varieta-prodotto');
+           const currentValue = varietaSelect.val();
+           
+           varietaSelect.empty();
+           varietaSelect.append('<option value="">Seleziona varietà</option>');
+           
+           if (agrume && varietyOptions[agrume]) {
+               varietyOptions[agrume].forEach(function(variety) {
+                   varietaSelect.append(`<option value="${variety.value}">${variety.text}</option>`);
+               });
+           }
+           
+           if (currentValue) {
+               varietaSelect.val(currentValue);
+           }
+       });
+   }
+
+   // Funzioni di salvataggio e caricamento
+   function collectProgramData() {
+       const data = {
+           tipoAgrume: $('#tipo-agrume-giornaliero').val(),
+           dataLavorazione: $('#data-lavorazione').val(),
+           ultimaRevisione: $('#last-revision').text(),
+           yieldsData: yieldsData,
+           transferData: transferData,
+           combinationData: combinationData,
+           fornitori: [],
+           totaliSeconda: {
+               destinazione: $('#destinazione-seconda-totale').val() || '',
+               polpa: $('#polpa-seconda-totale').val() || '<1%',
+               brix: $('#brix-seconda-totale').val() || 'NAT',
+               pastorizzato: $('#pastorizzato-seconda-totale').val() || 'SI',
+               conservato: $('#conservato-seconda-totale').val() || 'SI',
+               note: $('#note-seconda-totale').val() || ''
+           },
+           totaliTorchiato: {
+               destinazione: $('#destinazione-torchiato-totale').val() || 'CONCENTRATO',
+               polpa: $('#polpa-torchiato-totale').val() || '<1%',
+               brix: $('#brix-torchiato-totale').val() || '45',
+               pastorizzato: $('#pastorizzato-torchiato-totale').val() || 'SI',
+               conservato: $('#conservato-torchiato-totale').val() || 'NO',
+               note: $('#note-torchiato-totale').val() || ''
            }
        };
-
-       $('#suppliers-container .supplier-card').each(function() {
+       
+       $('.supplier-card').each(function() {
            const index = $(this).data('supplier-index');
-           const isAltroFornitore = $(this).find('.nome-fornitore').val() === 'ALTRO';
-           const supplierName = isAltroFornitore ? $(this).find('.altro-fornitore-text').val() : $(this).find('.nome-fornitore').val();
-           const isAltroVarieta = $(this).find('.varieta-agrume').val() === 'ALTRO';
-           const varietaAgrume = isAltroVarieta ? $(this).find('.altro-varieta-text').val() : $(this).find('.varieta-agrume').val();
-
-           const supplier = {
-               index: index,
-               nomeFornitore: supplierName,
-               quantita: parseFloat($(this).find('.quantita-fornitore').val()) || 0,
-               varieta: varietaAgrume,
-               tipoProduzione: $(this).find('.tipo-produzione').val(),
-               noteFornitore: $(this).find('.note-fornitore').val(),
-               succoPrima: parseFloat($(this).find('.succo-prima').val()) || 0,
-               succoSeconda: parseFloat($(this).find('.succo-seconda').val()) || 0,
-               torchiato: parseFloat($(this).find('.torchiato').val()) || 0,
-               scarto: parseFloat($(this).find('.scarto').val()) || 0,
-               succoPrimaTrasferito: parseFloat($(this).find('.succo-prima-trasferito').val()) || 0,
-               succoSecondaTrasferito: parseFloat($(this).find('.succo-seconda-trasferito').val()) || 0,
-               torchiatoTrasferito: parseFloat($(this).find('.torchiato-trasferito').val()) || 0,
+           const destinazioniPrima = Array.from($(this).find('.destinazione-prima')[0].selectedOptions).map(option => option.value);
+           
+           const distributionData = {};
+           $(this).find('.distribution-qty').each(function() {
+               const dest = $(this).data('dest');
+               const qty = parseFloat($(this).val()) || 0;
+               if (qty > 0) {
+                   distributionData[dest] = qty;
+               }
+           });
+           
+           const receivedTransfers = transferData[index] || [];
+           
+           // Determina colore combinazione
+           let combinationColor = '';
+           ['verde', 'azzurro', 'viola'].forEach(color => {
+               if ($(this).hasClass(`combination-${color}`)) {
+                   combinationColor = color;
+               }
+           });
+           
+           const fornitore = {
+               supplierIndex: index,
+               nome: $(this).find('.nome-fornitore').val(),
+               altroNome: $(this).find('.altro-fornitore').val(),
+               quantitaEntrata: parseFloat($(this).find('.quantita-fornitore').val()) || 0,
+               quantitaTrasformata: parseFloat($(this).find('.quantita-trasformata').val()) || 0,
                giacenza: parseFloat($(this).find('.giacenza-fornitore').val()) || 0,
-               noteLavorazione: $(this).find('.note-lavorazione').val(),
-               tipoLavorazioneA: $(this).find('.tipo-lavorazione-a').val(),
-               tipoLavorazioneB: $(this).find('.tipo-lavorazione-b').val(),
-               tipoLavorazioneC: $(this).find('.tipo-lavorazione-c').val(),
-               transferDetails: {} // Store transfer details if entered
+               certificazione: $(this).find('.certificazione-prodotto').val(),
+               altraCertificazione: $(this).find('.altra-certificazione').val(),
+               varieta: $(this).find('.varieta-prodotto').val(),
+               altraVarieta: $(this).find('.altra-varieta').val(),
+               lineaTrasformazione: $(this).find('.linea-trasformazione').val(),
+               portataImpianto: parseFloat($(this).find('.portata-impianto').val()) || 0,
+               orarioInizio: $(this).find('.orario-inizio').val(),
+               orarioFineDisplay: $(this).find('.orario-fine-display').html(),
+               rese: {
+                   prima: parseFloat($(this).find('.resa-prima').val()) || 0
+               },
+               quantitaProdotti: {
+                   prima: parseFloat($(this).find('.quantita-prima').val()) || 0
+               },
+               hasCombination: $(this).find('.quantita-prima').hasClass('combination-result'),
+               combinationType: $(this).find('.quantita-prima').attr('data-combination-type') || '',
+               combinationColor: combinationColor,
+               hasReceivedTransfers: $(this).find('.quantita-prima').hasClass('received-transfer'),
+               receivedTransfers: receivedTransfers,
+               distributionData: distributionData,
+               caratteristicheProdotti: {
+                   prima: {
+                       tenorePolpa: $(this).find('.tenore-polpa-prima').val(),
+                       altroTenore: $(this).find('.altro-tenore-prima').val(),
+                       brix: $(this).find('.brix-prima').val(),
+                       altroBrix: $(this).find('.altro-brix-prima').val(),
+                       bio: $(this).find('.bio-prima').val(),
+                       pastorizzato: $(this).find('.pastorizzato-prima').val(),
+                       conservato: $(this).find('.conservato-prima').val(),
+                       note: $(this).find('.note-prima').val()
+                   }
+               },
+               destinazioni: {
+                   prima: destinazioniPrima.join(', '),
+                   primaAltro: $(this).find('.altra-destinazione').val() || ''
+               }
            };
+           
+           data.fornitori.push(fornitore);
+       });
+       
+       return data;
+   }
 
-           // Collect transfer details
-           const transferDetailsDiv = $(this).find('.transfer-details');
-           if (transferDetailsDiv.is(':visible')) {
-               supplier.transferDetails = {
-                   destination: transferDetailsDiv.find('.transfer-destination').val(),
-                   note: transferDetailsDiv.find('.transfer-note').val()
-               };
-           }
-           programData.suppliers.push(supplier);
-       });
-
-       // Collect distribution data
-       programData.distribution.prima = [];
-       $('#distribution-prima .distribution-row').each(function() {
-           programData.distribution.prima.push({
-               destination: $(this).find('.distribution-dest').val(),
-               qty: parseFloat($(this).find('.distribution-qty').val()) || 0
-           });
-       });
-       programData.distribution.seconda = [];
-       $('#distribution-seconda .distribution-row').each(function() {
-           programData.distribution.seconda.push({
-               destination: $(this).find('.distribution-dest').val(),
-               qty: parseFloat($(this).find('.distribution-qty').val()) || 0
-           });
-       });
-       programData.distribution.torchiato = [];
-       $('#distribution-torchiato .distribution-row').each(function() {
-           programData.distribution.torchiato.push({
-               destination: $(this).find('.distribution-dest').val(),
-               qty: parseFloat($(this).find('.distribution-qty').val()) || 0
-           });
-       });
-
+   function saveProgramData() {
+       const data = collectProgramData();
+       const dataString = JSON.stringify(data, null, 2);
+       
        try {
-           const jsonString = JSON.stringify(programData, null, 2);
-           const blob = new Blob([jsonString], { type: 'application/json' });
-           
-           const fileName = `Programma_${agrume}_${dataLavorazione}.json`;
-           
-           // Use the File System Access API
-           const handle = await window.showSaveFilePicker({
-               suggestedName: fileName,
-               types: [{
-                   description: 'JSON Files',
-                   accept: {
-                       'application/json': ['.json'],
-                   },
-               }, ],
-           });
-           const writableStream = await handle.createWritable();
-           await writableStream.write(blob);
-           await writableStream.close();
-
-           showSaveStatus('Programma salvato con successo!');
+           localStorage.setItem('programmaGiornaliero', dataString);
+           showSaveStatus('Dati salvati con successo in locale!', 'success');
        } catch (error) {
-           console.error('Errore durante il salvataggio:', error);
-           if (error.name === 'AbortError') {
-               showSaveStatus('Salvataggio annullato dall\'utente.', true);
-           } else {
-               showSaveStatus('Errore durante il salvataggio del programma. Controlla la console per dettagli.', true);
-           }
+           showSaveStatus('Errore durante il salvataggio: ' + error.message, 'error');
        }
-       updateLastRevision();
-   });
+   }
 
-   // Carica programma da una cartella del computer
-   $('#carica-programma').on('click', async function() {
+   // NUOVO: Salvataggio su file
+   function saveToFile() {
+       const data = collectProgramData();
+       const dataString = JSON.stringify(data, null, 2);
+       
+       // Crea nome file con data
+       const today = new Date();
+       const dateString = today.toISOString().split('T')[0];
+       const agrume = data.tipoAgrume || 'programma';
+       const filename = `programma_${agrume}_${dateString}.json`;
+       
+       // Crea e scarica il file
+       const blob = new Blob([dataString], { type: 'application/json' });
+       const url = URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.href = url;
+       a.download = filename;
+       document.body.appendChild(a);
+       a.click();
+       document.body.removeChild(a);
+       URL.revokeObjectURL(url);
+       
+       showSaveStatus(`File ${filename} salvato con successo!`, 'success');
+   }
+
+   function loadProgramData() {
        try {
-           const [handle] = await window.showOpenFilePicker({
-               types: [{
-                   description: 'JSON Files',
-                   accept: {
-                       'application/json': ['.json'],
-                   },
-               }, ],
-               multiple: false
-           });
-           const file = await handle.getFile();
-           const content = await file.text();
-           const loadedProgramData = JSON.parse(content);
+           const dataString = localStorage.getItem('programmaGiornaliero');
+           if (!dataString) {
+               showSaveStatus('Nessun dato salvato trovato', 'error');
+               return;
+           }
+           
+           const data = JSON.parse(dataString);
+           loadDataFromObject(data);
+           
+       } catch (error) {
+           showSaveStatus('Errore durante il caricamento: ' + error.message, 'error');
+       }
+   }
 
-           // Reset current program
-           resetProgram();
-
-           // Populate header info
-           $('#tipo-agrume-giornaliero').val(loadedProgramData.agrume).trigger('change');
-           $('#data-lavorazione').val(loadedProgramData.dataLavorazione);
-           $('#selected-agrume').text(loadedProgramData.agrume || 'N/D');
-
-           // Populate suppliers
-           loadedProgramData.suppliers.forEach(supplier => {
-               supplierCount++;
-               $('#suppliers-container').append(createSupplierCard(supplierCount));
-               const card = $(`.supplier-card[data-supplier-index="${supplierCount}"]`);
-
-               // Populate fields
-               if (supplier.nomeFornitore === 'ALTRO' || !['ROSSI S.R.L.', 'VERDI S.P.A.', 'BIANCHI AZ.AGR.', 'GIALLI FRATELLI', 'BLU SOC.COOP.', 'MARRONI AZ.AGR.'].includes(supplier.nomeFornitore)) {
-                   card.find('.nome-fornitore').val('ALTRO').trigger('change');
-                   card.find('.altro-fornitore-text').val(supplier.nomeFornitore);
-                   card.find('.supplier-name').text(supplier.nomeFornitore);
-               } else {
-                   card.find('.nome-fornitore').val(supplier.nomeFornitore).trigger('change');
-                   card.find('.supplier-name').text(supplier.nomeFornitore);
+   function loadDataFromObject(data) {
+       // Ripristina dati base
+       $('#tipo-agrume-giornaliero').val(data.tipoAgrume || '');
+       $('#data-lavorazione').val(data.dataLavorazione || '');
+       $('#selected-agrume').text(data.tipoAgrume || 'N/D');
+       
+       // Ripristina yields, transfer e combination data
+       yieldsData = data.yieldsData || {};
+       transferData = data.transferData || {};
+       combinationData = data.combinationData || { verde: { indexes: [], details: [] }, azzurro: { indexes: [], details: [] }, viola: { indexes: [], details: [] } };
+       
+       // Rimuovi fornitori esistenti
+       $('.supplier-card').remove();
+       supplierCount = 0;
+       
+       // Ripristina fornitori
+       if (data.fornitori && data.fornitori.length > 0) {
+           data.fornitori.forEach(fornitore => {
+               const index = fornitore.supplierIndex;
+               if (index > supplierCount) supplierCount = index;
+               
+               const newCard = createSupplierCard(index);
+               $('#suppliers-container').append(newCard);
+               
+               const card = $(`.supplier-card[data-supplier-index="${index}"]`);
+               
+               // Ripristina dati fornitore
+               card.find('.nome-fornitore').val(fornitore.nome || '');
+               card.find('.altro-fornitore').val(fornitore.altroNome || '');
+               card.find('.quantita-fornitore').val(fornitore.quantitaEntrata || '');
+               card.find('.quantita-trasformata').val(fornitore.quantitaTrasformata || '');
+               card.find('.giacenza-fornitore').val(fornitore.giacenza || '');
+               card.find('.certificazione-prodotto').val(fornitore.certificazione || '');
+               card.find('.altra-certificazione').val(fornitore.altraCertificazione || '');
+               card.find('.varieta-prodotto').val(fornitore.varieta || '');
+               card.find('.altra-varieta').val(fornitore.altraVarieta || '');
+               card.find('.linea-trasformazione').val(fornitore.lineaTrasformazione || '');
+               card.find('.portata-impianto').val(fornitore.portataImpianto || '');
+               card.find('.orario-inizio').val(fornitore.orarioInizio || '');
+               card.find('.orario-fine-display').html(fornitore.orarioFineDisplay || '');
+               
+               // Rese
+               card.find('.resa-prima').val(fornitore.rese?.prima || 0);
+               
+               // Quantità prodotti
+               card.find('.quantita-prima').val(fornitore.quantitaProdotti?.prima || 0);
+               
+               // Caratteristiche
+               if (fornitore.caratteristicheProdotti?.prima) {
+                   const prima = fornitore.caratteristicheProdotti.prima;
+                   card.find('.tenore-polpa-prima').val(prima.tenorePolpa || 'STANDARD');
+                   card.find('.altro-tenore-prima').val(prima.altroTenore || '');
+                   card.find('.brix-prima').val(prima.brix || 'NAT');
+                   card.find('.altro-brix-prima').val(prima.altroBrix || '');
+                   card.find('.bio-prima').val(prima.bio || 'SI');
+                   card.find('.pastorizzato-prima').val(prima.pastorizzato || 'SI');
+                   card.find('.conservato-prima').val(prima.conservato || 'NO');
+                   card.find('.note-prima').val(prima.note || '');
                }
                
-               card.find('.quantita-fornitore').val(supplier.quantita);
-               
-               if (supplier.varieta === 'ALTRO' || !varietyOptions[loadedProgramData.agrume].map(v => v.value).includes(supplier.varieta)) {
-                   card.find('.varieta-agrume').val('ALTRO').trigger('change');
-                   card.find('.altro-varieta-text').val(supplier.varieta);
-               } else {
-                   card.find('.varieta-agrume').val(supplier.varieta).trigger('change');
-               }
-
-               card.find('.tipo-produzione').val(supplier.tipoProduzione).trigger('change');
-               card.find('.note-fornitore').val(supplier.noteFornitore);
-               card.find('.succo-prima').val(supplier.succoPrima);
-               card.find('.succo-seconda').val(supplier.succoSeconda);
-               card.find('.torchiato').val(supplier.torchiato);
-               card.find('.scarto').val(supplier.scarto);
-               card.find('.succo-prima-trasferito').val(supplier.succoPrimaTrasferito);
-               card.find('.succo-seconda-trasferito').val(supplier.succoSecondaTrasferito);
-               card.find('.torchiato-trasferito').val(supplier.torchiatoTrasferito);
-               card.find('.giacenza-fornitore').val(supplier.giacenza);
-               card.find('.note-lavorazione').val(supplier.noteLavorazione);
-               card.find('.tipo-lavorazione-a').val(supplier.tipoLavorazioneA);
-               card.find('.tipo-lavorazione-b').val(supplier.tipoLavorazioneB);
-               card.find('.tipo-lavorazione-c').val(supplier.tipoLavorazioneC);
-               
-               // Populate transfer details if available
-               if (supplier.transferDetails && supplier.transferDetails.destination) {
-                   const transferDetailsDiv = card.find('.transfer-details');
-                   transferDetailsDiv.show();
-                   transferDetailsDiv.html(`
-                       <div class="transfer-row mt-2">
-                           <span class="form-label">Destinazione:</span>
-                           <input type="text" class="form-control transfer-destination" value="${supplier.transferDetails.destination}" placeholder="Destinazione">
-                       </div>
-                       <div class="transfer-row">
-                           <span class="form-label">Note Trasferimento:</span>
-                           <textarea class="form-control transfer-note" rows="1">${supplier.transferDetails.note}</textarea>
-                       </div>
-                   `);
-               }
-           });
-           $('#suppliers-count').text(supplierCount);
-           updateSupplierOptions();
-           initializeSelect2();
-           calculateOverallTotals();
-
-           // Restore active combinations
-           if (loadedProgramData.activeCombinations) {
-               activeCombinations = loadedProgramData.activeCombinations;
-               for (const type in activeCombinations) {
-                   activeCombinations[type].suppliers.forEach(id => {
-                       $(`#combinazione-fornitori-${type} option[value="${id}"]`).prop('selected', true);
+               // Destinazioni
+               if (fornitore.destinazioni?.prima) {
+                   const destinazioni = fornitore.destinazioni.prima.split(', ').filter(d => d);
+                   const select = card.find('.destinazione-prima')[0];
+                   destinazioni.forEach(dest => {
+                       for (let option of select.options) {
+                           if (option.value === dest) {
+                               option.selected = true;
+                           }
+                       }
                    });
-                   $(`#combinazione-fornitori-${type}`).trigger('change');
                }
-               applyCombinationColors();
-           }
-           
-           // Restore general notes
-           $('#note-generali').val(loadedProgramData.generalNotes || '');
-
-           // Restore distribution data
-           if (loadedProgramData.distribution) {
-               loadDistributionData(loadedProgramData.distribution);
-           }
-           
-           showSaveStatus('Programma caricato con successo!');
-       } catch (error) {
-           console.error('Errore durante il caricamento:', error);
-           if (error.name === 'AbortError') {
-               showSaveStatus('Caricamento annullato dall\'utente.', true);
-           } else {
-               showSaveStatus('Errore durante il caricamento del programma. Controlla la console per dettagli.', true);
-           }
-       }
-       updateLastRevision();
-   });
-
-   // Helper function to load distribution data
-   function loadDistributionData(data = null) {
-       // Clear existing distribution rows
-       $('#distribution-prima').empty();
-       $('#distribution-seconda').empty();
-       $('#distribution-torchiato').empty();
-
-       const distributionData = data || programData.distribution;
-
-       if (distributionData && distributionData.prima) {
-           distributionData.prima.forEach(item => {
-               const container = $(`#distribution-prima`);
-               const rowId = `dist-prima-${Date.now()}`;
-               const rowHtml = `
-                   <div class="distribution-row" id="${rowId}">
-                       <input type="text" class="form-control distribution-dest" value="${item.destination}" placeholder="Destinazione">
-                       <input type="number" class="form-control distribution-qty" min="0" value="${item.qty}" oninput="calculateRemainingDistribution('prima')">
-                       <button type="button" class="btn btn-danger btn-sm" onclick="removeDistributionRow('${rowId}', 'prima')"><i class="bi bi-x"></i></button>
-                   </div>
-               `;
-               container.append(rowHtml);
+               card.find('.altra-destinazione').val(fornitore.destinazioni?.primaAltro || '');
+               
+               // Gestisci campi altro
+               if (fornitore.nome === 'ALTRO') {
+                   card.find('.altro-fornitore').removeClass('hidden-field');
+               }
+               if (fornitore.certificazione === 'ALTRO') {
+                   card.find('.altra-certificazione').removeClass('hidden-field');
+               }
+               if (fornitore.varieta === 'ALTRO') {
+                   card.find('.altra-varieta').removeClass('hidden-field');
+               }
+               
+               // Aggiorna nome nel header
+               updateSupplierName(index);
+               
+               // Inizializza Select2
+               card.find('.destinazione-prima').select2({
+                   placeholder: "Seleziona fino a 3 destinazioni",
+                   maximumSelectionLength: 3
+               });
+               
+               // Aggiorna stili e calcoli
+               updateBioStyles(index);
+               updateDistributionSection(index);
+               
+               // Ripristina distribuzione
+               if (fornitore.distributionData) {
+                   Object.entries(fornitore.distributionData).forEach(([dest, qty]) => {
+                       card.find(`.distribution-qty[data-dest="${dest}"]`).val(qty);
+                   });
+                   updateDistributionTotal(index);
+               }
+               
+               // Gestisci combinazioni con colori
+               if (fornitore.hasCombination && fornitore.combinationColor) {
+                   card.find('.quantita-prima').addClass('combination-result');
+                   card.find('.quantita-prima').attr('data-combination-type', fornitore.combinationColor);
+                   
+                   card.addClass(`combination-${fornitore.combinationColor}`);
+                   card.find('.supplier-header').addClass(`combination-${fornitore.combinationColor}`);
+                   
+                   const colorSymbol = fornitore.combinationColor === 'verde' ? '(V)' : 
+                                     fornitore.combinationColor === 'azzurro' ? '(A)' : '(P)';
+                   const currentHeader = card.find('.supplier-header').text();
+                   if (!currentHeader.includes('(V)') && !currentHeader.includes('(A)') && !currentHeader.includes('(P)')) {
+                       card.find('.supplier-header').html(currentHeader + ' ' + colorSymbol);
+                   }
+               }
+               
+               // Gestisci trasferimenti ricevuti
+               if (fornitore.hasReceivedTransfers) {
+                   card.find('.quantita-prima').addClass('received-transfer');
+                   
+                   if (fornitore.receivedTransfers && fornitore.receivedTransfers.length > 0) {
+                       const detailsContainer = card.find('.transfer-details');
+                       detailsContainer.removeClass('hidden-field');
+                       
+                       const transferItems = fornitore.receivedTransfers
+                           .map(transfer => `<div><strong>+${transfer.amount} kg</strong> da F${transfer.fromSupplier} (${transfer.fromName})</div>`)
+                           .join('');
+                       detailsContainer.html('<strong>Trasferimenti:</strong>' + transferItems);
+                   }
+               }
            });
        }
-       if (distributionData && distributionData.seconda) {
-           distributionData.seconda.forEach(item => {
-               const container = $(`#distribution-seconda`);
-               const rowId = `dist-seconda-${Date.now()}`;
-               const rowHtml = `
-                   <div class="distribution-row" id="${rowId}">
-                       <input type="text" class="form-control distribution-dest" value="${item.destination}" placeholder="Destinazione">
-                       <input type="number" class="form-control distribution-qty" min="0" value="${item.qty}" oninput="calculateRemainingDistribution('seconda')">
-                       <button type="button" class="btn btn-danger btn-sm" onclick="removeDistributionRow('${rowId}', 'seconda')"><i class="bi bi-x"></i></button>
-                   </div>
-               `;
-               container.append(rowHtml);
-           });
+       
+       // Ripristina totali seconda e torchiato
+       if (data.totaliSeconda) {
+           const seconda = data.totaliSeconda;
+           $('#destinazione-seconda-totale').val(seconda.destinazione || '');
+           $('#polpa-seconda-totale').val(seconda.polpa || '<1%');
+           $('#brix-seconda-totale').val(seconda.brix || 'NAT');
+           $('#pastorizzato-seconda-totale').val(seconda.pastorizzato || 'SI');
+           $('#conservato-seconda-totale').val(seconda.conservato || 'SI');
+           $('#note-seconda-totale').val(seconda.note || '');
        }
-       if (distributionData && distributionData.torchiato) {
-           distributionData.torchiato.forEach(item => {
-               const container = $(`#distribution-torchiato`);
-               const rowId = `dist-torchiato-${Date.now()}`;
-               const rowHtml = `
-                   <div class="distribution-row" id="${rowId}">
-                       <input type="text" class="form-control distribution-dest" value="${item.destination}" placeholder="Destinazione">
-                       <input type="number" class="form-control distribution-qty" min="0" value="${item.qty}" oninput="calculateRemainingDistribution('torchiato')">
-                       <button type="button" class="btn btn-danger btn-sm" onclick="removeDistributionRow('${rowId}', 'torchiato')"><i class="bi bi-x"></i></button>
-                   </div>
-               `;
-               container.append(rowHtml);
-           });
+       
+       if (data.totaliTorchiato) {
+           const torchiato = data.totaliTorchiato;
+           $('#destinazione-torchiato-totale').val(torchiato.destinazione || 'CONCENTRATO');
+           $('#polpa-torchiato-totale').val(torchiato.polpa || '<1%');
+           $('#brix-torchiato-totale').val(torchiato.brix || '45');
+           $('#pastorizzato-torchiato-totale').val(torchiato.pastorizzato || 'SI');
+           $('#conservato-torchiato-totale').val(torchiato.conservato || 'NO');
+           $('#note-torchiato-totale').val(torchiato.note || '');
        }
-
-       calculateRemainingDistribution('prima');
-       calculateRemainingDistribution('seconda');
-       calculateRemainingDistribution('torchiato');
+       
+       // Aggiorna tutto
+       updateTotals();
+       updateSuppliersCount();
+       updateCombinazioneOptions();
+       toggleCombinazioniSection();
+       updateSummarySection();
+       updateAllTransferOptions();
+       updateVarietyOptions($('#tipo-agrume-giornaliero').val());
+       
+       showSaveStatus('Dati caricati con successo!', 'success');
    }
 
-   // Reset programma completo
-   function resetProgram() {
-       if (confirm('Sei sicuro di voler resettare il programma? Tutti i dati inseriti verranno cancellati.')) {
-           $('#suppliers-container').empty();
-           supplierCount = 0;
-           $('#suppliers-count').text(0);
-           $('#tipo-agrume-giornaliero').val('').trigger('change');
-           $('#data-lavorazione').val('');
-           $('#selected-agrume').text('N/D');
-           $('#entrata-giornaliera-display').text('0 Kg');
-           $('#trasformata-totale-display').text('0 Kg');
-           $('#giacenza-totale-display').text('0 Kg');
-           $('#summary-section').addClass('hidden-field').empty();
-           $('#combinazione-fornitori-a').val(null).trigger('change');
-           $('#combinazione-fornitori-b').val(null).trigger('change');
-           $('#combinazione-fornitori-c').val(null).trigger('change');
-           activeCombinations = {
-               'prima': { suppliers: [], colorClass: 'combination-green' },
-               'seconda': { suppliers: [], colorClass: 'combination-blue' },
-               'torchiato': { suppliers: [], colorClass: 'combination-purple' }
-           };
-           applyCombinationColors(); // Ensure combination backgrounds are reset
-           $('#combinazioni-section').removeClass('hidden-field'); // Ensure it's visible by default for new suppliers
-           updateLastRevision();
-           showSaveStatus('Programma resettato con successo!');
-
-           // Add default 6 suppliers
-           for (let i = 0; i < 6; i++) {
-               addSupplier();
-           }
-       }
-   }
-
-   // Mostra stato salvataggio
-   function showSaveStatus(message, isError = false) {
+   function showSaveStatus(message, type) {
        const statusDiv = $('#save-status');
        const messageSpan = $('#save-message');
-       statusDiv.removeClass('save-success save-error').hide();
+       
        messageSpan.text(message);
-
-       if (isError) {
-           statusDiv.addClass('save-error');
+       
+       if (type === 'error') {
+           statusDiv.addClass('save-error').removeClass('save-status');
        } else {
-           statusDiv.addClass('save-success');
+           statusDiv.removeClass('save-error').addClass('save-status');
        }
-       statusDiv.slideDown().delay(3000).slideUp();
+       
+       statusDiv.fadeIn();
+       
+       setTimeout(() => {
+           statusDiv.fadeOut();
+       }, 3000);
    }
 
-   // Event Listeners
-   $('#aggiungi-fornitore').on('click', addSupplier);
-   $('#reset-programma').on('click', resetProgram);
+   // Eventi principali
+   $('#tipo-agrume-giornaliero').change(function() {
+       const agrume = $(this).val();
+       $('#selected-agrume').text(agrume || 'N/D');
+       
+       if (agrume) {
+           const yields = calculateAutoYields(agrume);
+           
+           $('.supplier-card').each(function() {
+               $(this).find('.resa-prima').val(yields.prima);
+               
+               const index = $(this).data('supplier-index');
+               calculateSupplier(index);
+               updateDistributionTotal(index);
+           });
+           
+           updateVarietyOptions(agrume);
+           updateTotals();
+           updateSummarySection();
+       }
+   });
 
-   $('#applica-combinazione-a').on('click', () => applyCombination('prima'));
-   $('#reset-combinazione-a').on('click', () => resetCombination('prima'));
-   $('#applica-combinazione-b').on('click', () => applyCombination('seconda'));
-   $('#reset-combinazione-b').on('click', () => resetCombination('seconda'));
-   $('#applica-combinazione-c').on('click', () => applyCombination('torchiato'));
-   $('#reset-combinazione-c').on('click', () => resetCombination('torchiato'));
+   $('#aggiungi-fornitore').click(function() {
+       if (!$('#tipo-agrume-giornaliero').val()) {
+           alert('Seleziona prima il tipo di agrume');
+           return;
+       }
+       
+       supplierCount++;
+       const newCard = createSupplierCard(supplierCount);
+       $('#suppliers-container').append(newCard);
+       
+       // Inizializza Select2 per destinazioni multiple
+       const card = $(`.supplier-card[data-supplier-index="${supplierCount}"]`);
+       card.find('.destinazione-prima').select2({
+           placeholder: "Seleziona fino a 3 destinazioni",
+           maximumSelectionLength: 3
+       });
+       
+       updateSuppliersCount();
+       updateCombinazioneOptions();
+       toggleCombinazioniSection();
+       updateAllTransferOptions();
+   });
+
+   // Eventi combinazioni con colori
+   $('#applica-combinazione-verde').click(function() {
+       applyCombination('verde');
+   });
+
+   $('#reset-combinazione-verde').click(function() {
+       resetCombination('verde');
+   });
+
+   $('#applica-combinazione-azzurro').click(function() {
+       applyCombination('azzurro');
+   });
+
+   $('#reset-combinazione-azzurro').click(function() {
+       resetCombination('azzurro');
+   });
+
+   $('#applica-combinazione-viola').click(function() {
+       applyCombination('viola');
+   });
+
+   $('#reset-combinazione-viola').click(function() {
+       resetCombination('viola');
+   });
+
+   $('#rese-button').click(function() {
+       openYieldsModal();
+   });
+
+   $('.close-yields').click(function() {
+       closeYieldsModal();
+   });
+
+   $('#salva-rese').click(function() {
+       saveYieldsData();
+   });
+
+   $('#reset-rese').click(function() {
+       resetYieldsData();
+   });
+
+   $('#salva-programma').click(function() {
+       saveProgramData();
+   });
+
+   $('#carica-programma').click(function() {
+       if (confirm('Attenzione: il caricamento sovrascriverà tutti i dati attuali. Continuare?')) {
+           loadProgramData();
+       }
+   });
+
+   // NUOVO: Evento salva file
+   $('#salva-file').click(function() {
+       saveToFile();
+   });
+
+   $(window).click(function(event) {
+       if (event.target.id === 'yields-modal') {
+           closeYieldsModal();
+       }
+   });
+
+   $('#reset-programma').click(function() {
+       if (confirm('Attenzione: questa operazione cancellerà tutti i dati inseriti. Continuare?')) {
+           localStorage.removeItem('programmaGiornaliero');
+           location.reload();
+       }
+   });
 
    // Inizializzazione
    initCurrentDate();
-   loadYieldsFromLocalStorage();
+   updateSuppliersCount();
 
-   // Add default 6 suppliers on load
-   for (let i = 0; i < 6; i++) {
-       addSupplier();
-   }
+   console.log('Sistema Programma Giornaliero Trasformazione inizializzato - 6 colonne, colori combinazioni, salvataggio file');
 });
 </script>
 </body>
 </html>
-```
