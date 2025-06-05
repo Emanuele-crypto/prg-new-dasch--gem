@@ -179,7 +179,7 @@ body {
    color: #000000;
 }
 
-/* MODIFICATO: 6 colonne fornitori su una riga */
+/* 6 colonne fornitori su una riga */
 .suppliers-container {
    display: grid;
    grid-template-columns: repeat(6, 1fr);
@@ -325,7 +325,7 @@ body {
    margin: 6px 0;
 }
 
-/* MODIFICATO: Sezioni totali compatte con giallo ocra */
+/* Sezioni totali compatte con giallo ocra */
 .summary-section {
    display: flex;
    gap: 15px;
@@ -655,11 +655,14 @@ body {
    color: #721c24;
 }
 
+/* MIGLIORATA: Stampa con caratteri grandi e leggibili */
 @media print {
    body { 
-       margin: 15mm;
-       background-color: #ffffff;
-       font-size: 14px;
+       margin: 8mm;
+       background-color: #ffffff !important;
+       font-size: 20px !important;
+       line-height: 1.3;
+       color: #000000 !important;
    }
    
    .controls-section {
@@ -674,34 +677,219 @@ body {
        display: none !important;
    }
    
+   .header {
+       background: #ffffff !important;
+       color: #000000 !important;
+       border: 3px solid #000000 !important;
+       padding: 20px !important;
+       margin-bottom: 15px !important;
+   }
+   
+   .header h1 {
+       font-size: 32px !important;
+       color: #000000 !important;
+       font-weight: bold !important;
+   }
+   
+   .header .subtitle {
+       font-size: 24px !important;
+       color: #000000 !important;
+   }
+   
+   .header-info {
+       font-size: 22px !important;
+       color: #000000 !important;
+   }
+   
+   .totals-section {
+       background-color: #f0f0f0 !important;
+       border: 2px solid #000000 !important;
+       padding: 15px !important;
+       margin-bottom: 15px !important;
+   }
+   
+   .total-value {
+       font-size: 28px !important;
+       color: #000000 !important;
+   }
+   
+   .total-label {
+       font-size: 20px !important;
+       color: #000000 !important;
+   }
+   
    .suppliers-container {
-       grid-template-columns: repeat(6, 1fr);
-       gap: 5px;
+       grid-template-columns: repeat(6, 1fr) !important;
+       gap: 8px !important;
    }
    
    .supplier-card {
-       font-size: 10px;
-       padding: 8px;
+       font-size: 16px !important;
+       padding: 12px !important;
+       background-color: #ffffff !important;
+       border: 2px solid #000000 !important;
+       page-break-inside: avoid;
+   }
+   
+   .supplier-card.combination-verde {
+       background-color: #e8f5e9 !important;
+       border: 3px solid #28a745 !important;
+   }
+   
+   .supplier-card.combination-azzurro {
+       background-color: #e1f5fe !important;
+       border: 3px solid #17a2b8 !important;
+   }
+   
+   .supplier-card.combination-viola {
+       background-color: #f3e5f5 !important;
+       border: 3px solid #6f42c1 !important;
+   }
+   
+   .supplier-header {
+       background: #f0f0f0 !important;
+       color: #000000 !important;
+       font-size: 20px !important;
+       font-weight: bold !important;
+       padding: 10px !important;
+       border-bottom: 2px solid #000000 !important;
+       text-align: center !important;
+   }
+   
+   .supplier-header.combination-verde {
+       background: #d4edda !important;
+       color: #000000 !important;
+   }
+   
+   .supplier-header.combination-azzurro {
+       background: #d1ecf1 !important;
+       color: #000000 !important;
+   }
+   
+   .supplier-header.combination-viola {
+       background: #e2e3f3 !important;
+       color: #000000 !important;
+   }
+   
+   .form-row {
+       margin-bottom: 8px !important;
    }
    
    .form-label {
-       font-size: 9px;
+       font-size: 16px !important;
+       font-weight: bold !important;
+       color: #000000 !important;
    }
    
    .form-input input,
    .form-input select,
    .form-input textarea {
-       font-size: 8px;
-       padding: 2px;
+       font-size: 15px !important;
+       padding: 6px !important;
+       border: 1px solid #000000 !important;
+       background-color: #ffffff !important;
+       color: #000000 !important;
    }
    
-   .header {
-       background: #1e3c72 !important;
-       color: #ffffff !important;
+   .calculated-field,
+   .yield-result {
+       background-color: #f8f9fa !important;
+       font-weight: bold !important;
+       border: 2px solid #000000 !important;
    }
    
-   .header h1, .header .subtitle, .header-info {
-       color: #ffffff !important;
+   .bio-red-field {
+       color: #dc3545 !important;
+       font-weight: bold !important;
+       border: 2px solid #dc3545 !important;
+   }
+   
+   .bio-black-field {
+       color: #000000 !important;
+       font-weight: bold !important;
+       border: 2px solid #000000 !important;
+   }
+   
+   .bio-red-text {
+       color: #dc3545 !important;
+       font-weight: bold !important;
+   }
+   
+   .bio-black-text {
+       color: #000000 !important;
+       font-weight: bold !important;
+   }
+   
+   .combination-result {
+       background-color: #fff3cd !important;
+       border: 3px solid #ffc107 !important;
+       color: #000000 !important;
+       font-weight: bold !important;
+   }
+   
+   .received-transfer {
+       background-color: #d4edda !important;
+       border: 3px solid #28a745 !important;
+   }
+   
+   .summary-section {
+       page-break-before: auto;
+       margin-top: 15px !important;
+   }
+   
+   .summary-box {
+       background: #f5f5f5 !important;
+       border: 2px solid #000000 !important;
+       padding: 15px !important;
+   }
+   
+   .summary-title {
+       font-size: 22px !important;
+       color: #000000 !important;
+       background-color: #e0e0e0 !important;
+       padding: 8px !important;
+   }
+   
+   .summary-item {
+       font-size: 18px !important;
+       color: #000000 !important;
+       margin-bottom: 8px !important;
+   }
+   
+   .summary-value {
+       font-size: 20px !important;
+       color: #000000 !important;
+       background-color: #ffffff !important;
+       border: 1px solid #000000 !important;
+   }
+   
+   .summary-input,
+   .summary-textarea {
+       font-size: 16px !important;
+       border: 1px solid #000000 !important;
+       background-color: #ffffff !important;
+       color: #000000 !important;
+   }
+   
+   .footer {
+       background-color: #f0f0f0 !important;
+       border: 2px solid #000000 !important;
+       font-size: 18px !important;
+       color: #000000 !important;
+       page-break-before: auto;
+   }
+   
+   .transfer-details,
+   .distribution-details {
+       font-size: 14px !important;
+       color: #000000 !important;
+       background-color: #f0f0f0 !important;
+       border: 1px solid #000000 !important;
+   }
+   
+   .section-divider {
+       border-bottom: 2px solid #000000 !important;
+       margin: 8px 0 !important;
    }
    
    @page {
@@ -765,6 +953,9 @@ body {
            </button>
            <button type="button" class="btn btn-info" id="salva-file">
                <i class="bi bi-download"></i> Salva File
+           </button>
+           <button type="button" class="btn btn-info" id="carica-file">
+               <i class="bi bi-upload"></i> Carica File
            </button>
            <button type="button" class="btn btn-warning" onclick="window.print()">
                <i class="bi bi-printer"></i> Stampa
@@ -998,6 +1189,9 @@ body {
            </div>
        </div>
    </div>
+
+   <!-- Input file nascosto per caricamento -->
+   <input type="file" id="file-input" accept=".json" style="display: none;">
 
 <script>
 $(document).ready(function() {
@@ -1456,7 +1650,7 @@ $(document).ready(function() {
        }
    };
 
-   // MODIFICATO: Gestione colori bio con nuovi colori combinazioni
+   // Gestione colori bio con nuovi colori combinazioni
    window.updateBioStyles = function(index) {
        const card = $(`.supplier-card[data-supplier-index="${index}"]`);
        const certificazione = card.find('.certificazione-prodotto').val();
@@ -1724,7 +1918,7 @@ $(document).ready(function() {
        }
    }
 
-   // MODIFICATO: Reset fornitore con ripristino colore grigio
+   // Reset fornitore con ripristino colore grigio
    window.resetSupplier = function(index) {
        if (confirm('Sei sicuro di voler resettare tutti i campi di questo fornitore?')) {
            const card = $(`.supplier-card[data-supplier-index="${index}"]`);
@@ -1850,7 +2044,7 @@ $(document).ready(function() {
        $('#suppliers-count').text(count);
    }
 
-   // MODIFICATO: Aggiornamento opzioni combinazioni con colori
+   // Aggiornamento opzioni combinazioni con colori
    function updateCombinazioneOptions() {
        const selectVerde = $('#combinazione-fornitori-verde');
        const selectAzzurro = $('#combinazione-fornitori-azzurro');
@@ -1914,7 +2108,7 @@ $(document).ready(function() {
        }
    }
 
-   // MODIFICATO: Sezione riepilogo compatta con giallo ocra
+   // Sezione riepilogo compatta con giallo ocra
    function updateSummarySection() {
        let totalSeconda = 0;
        let totalTorchiato = 0;
@@ -1970,6 +2164,7 @@ $(document).ready(function() {
                                <option value="32">32</option>
                                <option value="40">40</option>
                                <option value="45">45</option>
+                               <option value="48">48</option>
                                <option value="55">55</option>
                                <option value="60">60</option>
                                <option value="65">65</option>
@@ -2063,7 +2258,7 @@ $(document).ready(function() {
        }
    }
 
-   // MODIFICATO: Gestione combinazioni con colori
+   // Gestione combinazioni con colori
    function getLastSupplierInCombination(comboValue) {
        const indexes = comboValue.split(',').map(i => parseInt(i));
        const maxIndex = Math.max(...indexes);
@@ -2088,7 +2283,7 @@ $(document).ready(function() {
            const nome = card.find('.nome-fornitore').val();
            const altroNome = card.find('.altro-fornitore').val();
            const nomeFornitore = nome === 'ALTRO' ? altroNome : nome;
-          const certificazione = card.find('.certificazione-prodotto').val() || 'N/D';
+           const certificazione = card.find('.certificazione-prodotto').val() || 'N/D';
            const linea = card.find('.linea-trasformazione').val() || 'N/D';
            
            const quantitaTrasformata = parseFloat(card.find('.quantita-trasformata').val()) || 0;
@@ -2398,18 +2593,59 @@ $(document).ready(function() {
        }
    }
 
-   // NUOVO: Salvataggio su file
+   // MIGLIORATO: Salvataggio su file con possibilità di scegliere cartella
    function saveToFile() {
-       const data = collectProgramData();
-       const dataString = JSON.stringify(data, null, 2);
-       
-       // Crea nome file con data
-       const today = new Date();
-       const dateString = today.toISOString().split('T')[0];
-       const agrume = data.tipoAgrume || 'programma';
-       const filename = `programma_${agrume}_${dateString}.json`;
-       
-       // Crea e scarica il file
+       try {
+           const data = collectProgramData();
+           const dataString = JSON.stringify(data, null, 2);
+           
+           // Crea nome file con data
+           const today = new Date();
+           const dateString = today.toISOString().split('T')[0];
+           const agrume = data.tipoAgrume || 'programma';
+           const filename = `programma_${agrume}_${dateString}.json`;
+           
+           // Verifica se il browser supporta showSaveFilePicker (Chrome 86+)
+           if ('showSaveFilePicker' in window) {
+               // Usa File System Access API per salvare dove vuole l'utente
+               saveWithFileSystemAPI(dataString, filename);
+           } else {
+               // Fallback al download tradizionale
+               saveWithDownloadFallback(dataString, filename);
+           }
+           
+       } catch (error) {
+           showSaveStatus('Errore durante la preparazione del file: ' + error.message, 'error');
+       }
+   }
+
+   // Salvataggio moderno con possibilità di scegliere cartella
+   async function saveWithFileSystemAPI(dataString, filename) {
+       try {
+           const fileHandle = await window.showSaveFilePicker({
+               suggestedName: filename,
+               types: [{
+                   description: 'File JSON',
+                   accept: { 'application/json': ['.json'] }
+               }]
+           });
+           
+           const writable = await fileHandle.createWritable();
+           await writable.write(dataString);
+           await writable.close();
+           
+           showSaveStatus(`File ${filename} salvato con successo nella cartella scelta!`, 'success');
+       } catch (error) {
+           if (error.name !== 'AbortError') {
+               showSaveStatus('Errore durante il salvataggio: ' + error.message, 'error');
+               // Fallback al download tradizionale
+               saveWithDownloadFallback(dataString, filename);
+           }
+       }
+   }
+
+   // Fallback per browser che non supportano File System Access API
+   function saveWithDownloadFallback(dataString, filename) {
        const blob = new Blob([dataString], { type: 'application/json' });
        const url = URL.createObjectURL(blob);
        const a = document.createElement('a');
@@ -2420,8 +2656,39 @@ $(document).ready(function() {
        document.body.removeChild(a);
        URL.revokeObjectURL(url);
        
-       showSaveStatus(`File ${filename} salvato con successo!`, 'success');
+       showSaveStatus(`File ${filename} salvato nella cartella Download!`, 'success');
    }
+
+   // NUOVO: Caricamento file
+   function loadFromFile() {
+       $('#file-input').click();
+   }
+
+   // Gestione caricamento file
+   $('#file-input').change(function(e) {
+       const file = e.target.files[0];
+       if (!file) return;
+       
+       if (file.type !== 'application/json' && !file.name.endsWith('.json')) {
+           showSaveStatus('Seleziona un file JSON valido', 'error');
+           return;
+       }
+       
+       const reader = new FileReader();
+       reader.onload = function(e) {
+           try {
+               const data = JSON.parse(e.target.result);
+               loadDataFromObject(data);
+               showSaveStatus(`File ${file.name} caricato con successo!`, 'success');
+           } catch (error) {
+               showSaveStatus('Errore durante il caricamento del file: ' + error.message, 'error');
+           }
+       };
+       reader.readAsText(file);
+       
+       // Reset dell'input file
+       $(this).val('');
+   });
 
    function loadProgramData() {
        try {
@@ -2726,9 +2993,15 @@ $(document).ready(function() {
        }
    });
 
-   // NUOVO: Evento salva file
+   // Eventi salvataggio e caricamento file
    $('#salva-file').click(function() {
        saveToFile();
+   });
+
+   $('#carica-file').click(function() {
+       if (confirm('Attenzione: il caricamento del file sovrascriverà tutti i dati attuali. Continuare?')) {
+           loadFromFile();
+       }
    });
 
    $(window).click(function(event) {
@@ -2748,7 +3021,7 @@ $(document).ready(function() {
    initCurrentDate();
    updateSuppliersCount();
 
-   console.log('Sistema Programma Giornaliero Trasformazione inizializzato - 6 colonne, colori combinazioni, salvataggio file');
+   console.log('Sistema Programma Giornaliero Trasformazione inizializzato - 6 colonne, stampa migliorata, salvataggio file avanzato');
 });
 </script>
 </body>
